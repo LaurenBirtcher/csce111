@@ -1,18 +1,21 @@
 import javax.swing.JOptionPane;
 import java.util.*;
+import java.util.Arrays;
 
 class CardsOfThrones{
   //begin class
-  public static void main(String[] args){
+  public static void main(String[] args){//begin main
 
+  //intro done by Janie and Lauren
   System.out.println();
   System.out.println("Welcome to Cards of Thrones!\n");
-  System.out.println("...something about conquering kingdoms...?");
+  System.out.println("Summers span decades. Winters can last a lifetime. And the struggle for the Iron Throne begins.");
+  System.out.println("If you follow the rules and play your cards carefully, maybe the Throne will be yours...");
   System.out.println("\nGame Rules:"+"\n1. Split the deck evenly among all four players (13 cards each)"+
                     "\n2. Each player chooses a characters"+"\n3. Each player draws 5 cards from their deck of 13"+
                     "\n4. Choose 1 card to play"+"\n5. The highest card value wins, but a 7 beats any numerical card"
                     +"\n6. triple round? rivalry or alliance? increase value by 1?");
-
+  //array and list defined by Janie
   String cards[] = {"A-C", "2-C", "3-C", "4-C", "5-C", "6-C", "7-C", "8-C", "9-C", "10-C", "J-C", "Q-C", "K-C",
                     "A-S", "2-S", "3-S", "4-S", "5-S", "6-S", "7-S", "8-S", "9-S", "10-S", "J-S", "Q-S", "K-S",
                     "A-D", "2-D", "3-D", "4-D", "5-D", "6-D", "7-D", "8-D", "9-D", "10-D", "J-D", "Q-D", "K-D",
@@ -21,9 +24,20 @@ class CardsOfThrones{
   ArrayList<String> deck = new ArrayList<String>(Arrays.asList(cards));
   Collections.shuffle(deck);
 
-  //define 4 characters/players as an array with an index?
+  System.out.println(deck);
+  List<String> player1 = deck.subList(0, 13);
+  System.out.println(player1);
+  List<String> player2 = deck.subList(13, 26);
+  System.out.println(player2);
+  List<String> player3 = deck.subList(26, 39);
+  System.out.println(player3);
+  List<String> player4 = deck.subList(39, 52);
+  System.out.println(player4);
 
   }//end main
+
+
+
 
 }//end class
 
