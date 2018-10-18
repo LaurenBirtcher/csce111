@@ -24,6 +24,7 @@ class CardsOfThrones{
   ArrayList<String> deck = new ArrayList<String>(Arrays.asList(cards));
   Collections.shuffle(deck);
 
+  //dealing done by Janie and Lauren
   System.out.println(deck);
   List<String> player1 = deck.subList(0, 13);
   System.out.println(player1);
