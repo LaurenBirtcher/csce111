@@ -77,7 +77,7 @@ class CardsOfThrones{
 
   //function created by Lauren
   /**
-  Method pickFIve will do the following: select five cards from the "bottom" of each player's deck
+  Method pickFive will do the following: select five cards from the "bottom" of each player's deck
   and remove those five cards from hand of 13
   @param String ArrayList
   @return String ArrayList
