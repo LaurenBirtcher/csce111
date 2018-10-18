@@ -3,6 +3,11 @@ import java.util.*;
 import java.util.Arrays;
 
 class CardsOfThrones{
+
+  static ArrayList<String> player1Hand;
+  static ArrayList<String> player2Hand;
+  static ArrayList<String> player3Hand;
+  static ArrayList<String> player4Hand;
   //begin class
   public static void main(String[] args){//begin main
 
@@ -11,11 +16,34 @@ class CardsOfThrones{
   System.out.println("Welcome to Cards of Thrones!\n");
   System.out.println("Summers span decades. Winters can last a lifetime. And the struggle for the Iron Throne begins.");
   System.out.println("If you follow the rules and play your cards carefully, maybe the Throne will be yours...");
-  System.out.println("\nGame Rules:"+"\n1. Split the deck evenly among all four players (13 cards each)"+
-                    "\n2. Each player chooses a characters"+"\n3. Each player draws 5 cards from their deck of 13"+
-                    "\n4. Choose 1 card to play"+"\n5. The highest card value wins, but a 7 beats any numerical card"
-                    +"\n6. triple round? rivalry or alliance? increase value by 1?");
+  // state rules to user
+  //need to figure out/clarify rule 7
+  System.out.println("\nGame Rules:"+"\n1. This game is for 4 players. Each player chooses a character."+
+                    "\n2. Remove jokers and split the deck evenly among all four players (13 cards each)"+
+                    "\n3. Each player draws 5 cards from their deck of 13."+
+                    "\n4. Each player chooses 1 card to play."+
+                    "\n5. The highest card value wins, but a 7 beats any numerical card."+
+                    "\n6. In the event of a tie, compare suits."+
+                    "\n7. triple round? rivalry or alliance? increase value by 1?"+
+                    "\n8. At the end of each round, players draw one more card to maintain 5 in their hand."+
+                    "\n9. The first player to win 10 rounds wins the game.");
+
+  //each player chooses character (Robb Stark, Daenerys Targaryen, King Joffrey, and Stannis Baratheon)
+  //player selction done by Lauren
+  System.out.println("\nThe characters in this card game are Robb Stark, Daenerys Targaryen, King Joffrey, and Stannis Baratheon.");
+  String player1, player2, player3, player4;
+  Scanner keyboard = new Scanner(System.in);
+  System.out.println("Player 1, please enter the name of the character you would like to be.");
+  player1 = keyboard.nextLine();
+  System.out.println("Player 2, please enter the name of the character you would like to be.");
+  player2 = keyboard.nextLine();
+  System.out.println("Player 3, please enter the name of the character you would like to be.");
+  player3 = keyboard.nextLine();
+  System.out.println("Player 4, please enter the name of the character you would like to be.");
+  player4 = keyboard.nextLine();
+
   //array and list defined by Janie
+  //C for club, S for spade, D for diamond, H for heart
   String cards[] = {"A-C", "2-C", "3-C", "4-C", "5-C", "6-C", "7-C", "8-C", "9-C", "10-C", "J-C", "Q-C", "K-C",
                     "A-S", "2-S", "3-S", "4-S", "5-S", "6-S", "7-S", "8-S", "9-S", "10-S", "J-S", "Q-S", "K-S",
                     "A-D", "2-D", "3-D", "4-D", "5-D", "6-D", "7-D", "8-D", "9-D", "10-D", "J-D", "Q-D", "K-D",
@@ -25,32 +53,50 @@ class CardsOfThrones{
   Collections.shuffle(deck);
 
   //dealing done by Janie and Lauren
-  System.out.println(deck);
-  List<String> player1 = deck.subList(0, 13);
-  System.out.println(player1);
-  List<String> player2 = deck.subList(13, 26);
-  System.out.println(player2);
-  List<String> player3 = deck.subList(26, 39);
-  System.out.println(player3);
-  List<String> player4 = deck.subList(39, 52);
-  System.out.println(player4);
+  player1Hand = new ArrayList<String>(deck.subList(0, 13));
+  System.out.println(player1+"'s hand is "+player1Hand);
+  player2Hand = new ArrayList<String>(deck.subList(13, 26));
+  System.out.println(player2+"'s hand is "+player2Hand);
+  player3Hand = new ArrayList<String>(deck.subList(26, 39));
+  System.out.println(player3+"'s hand is "+player3Hand);
+  player4Hand = new ArrayList<String>(deck.subList(39, 52));
+  System.out.println(player4+"'s hand is "+player4Hand);
+
+  //function done by Lauren
+  ArrayList<String> player1Five = pickFive(player1Hand);
+  ArrayList<String> player2Five = pickFive(player2Hand);
+  ArrayList<String> player3Five = pickFive(player3Hand);
+  ArrayList<String> player4Five = pickFive(player4Hand);
+  //this part is just for checking, can be deleted later
+  System.out.println(player1Five);
+  System.out.println(player1Hand);
+  System.out.println(player2Five);
+  System.out.println(player2Hand);
 
   }//end main
 
-
-
+  //function created by Lauren
+  /**
+  Method pickFIve will do the following: select five cards from the "bottom" of each player's deck
+  and remove those five cards from hand of 13
+  @param String ArrayList
+  @return String ArrayList
+  */
+  public static ArrayList<String> pickFive(ArrayList<String> hand){
+    ArrayList<String> fiveCards = new ArrayList<String>();
+    for (int i=0; i<5;i++) {
+      fiveCards.add(hand.get(hand.size()-1));
+      hand.remove(hand.size()-1);
+    }//end for
+  return fiveCards;
+  }//end pickFive function
 
 }//end class
 
-// include introduction to the game
-// state rules to user
-
 //whole game in dialog boxes?
-//game is for 4 players
-//each player chooses character (Robb Stark, Daenerys Targaryen, King Joffrey, and Stannis Baratheon)
+
 //use pictures of character in java code to let player select character
 
-//split deck evenly among all players (no jokers) 13 cards per person
 //each player draws 5 cards from THEIR deck of 13
 //each player chooses 1 card of the 5 to play (places face down)
 //all four cards revealed at once
@@ -62,8 +108,6 @@ class CardsOfThrones{
 //Rule #7??
 //triple round:
 
-//After each round, everyone draws 1 more card from THEIR deck to make total cards in hand be 5
-//First player to win 10 rounds wins the game
-
 //min # of rounds is 6
 //max # of rounds is 37
+
