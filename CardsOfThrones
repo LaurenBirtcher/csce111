@@ -90,6 +90,11 @@ class CardsOfThrones{
   System.out.println("Player 4 has these eight cards in hand: " + player4HandValues);
   
   //NEXT ---> each player chooses 1 card to play
+  Scanner keyboard = new Scanner(System.in);
+  System.out.println("Player 1, these are your five cards on hand: " + player1Five);
+  System.out.println("Please choose a card to play: ");
+  playCard = keyboard.nextLine();
+  //user based or computer playing to win?
 
   }//end main
   
