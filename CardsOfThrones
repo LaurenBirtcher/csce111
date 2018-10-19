@@ -61,17 +61,143 @@ class CardsOfThrones{
   System.out.println(player3+"'s hand is "+player3Hand);
   player4Hand = new ArrayList<String>(deck.subList(39, 52));
   System.out.println(player4+"'s hand is "+player4Hand);
+  
+  //assigning values done by Janie
+  //note: can be generalized for all four players --> need to put into function 
+  //since the suits do not matter in ranking to determine winner,
+  //assign corresponding numerical values as soon as the deck is split evenly among all players (13 each)
+  ArrayList<String> player1HandValues = new ArrayList<String>();
+  for (int i = 0; i < player1Hand.size(); i++){
+    //System.out.println(player1Hand.get(i));
+    String value = player1Hand.get(i);
+    String[] splitCard = value.split("-");
+    player1HandValues.add(splitCard[0]);
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+  for (int j = 0; j < player1HandValues.size(); j++){
+    //System.out.println(player1HandValues.get(j));
+    if(player1HandValues.get(j).equals("A")){
+      player1HandValues.remove(j);
+      player1HandValues.add(j,"1");
+    }//end if
+    if(player1HandValues.get(j).equals("J")){
+      player1HandValues.remove(j);
+      player1HandValues.add(j,"11");
+    }//end if
+    if(player1HandValues.get(j).equals("Q")){
+      player1HandValues.remove(j);
+      player1HandValues.add(j,"12");
+    }//end if
+    if(player1HandValues.get(j).equals("K")){
+      player1HandValues.remove(j);
+      player1HandValues.add(j,"13");
+    }//end if
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+
+  ArrayList<String> player2HandValues = new ArrayList<String>();
+  for (int i = 0; i < player2Hand.size(); i++){
+    //System.out.println(player1Hand.get(i));
+    String value = player2Hand.get(i);
+    String[] splitCard = value.split("-");
+    player2HandValues.add(splitCard[0]);
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+  for (int j = 0; j < player2HandValues.size(); j++){
+    //System.out.println(player1HandValues.get(j));
+    if(player2HandValues.get(j).equals("A")){
+      player2HandValues.remove(j);
+      player2HandValues.add(j,"1");
+    }//end if
+    if(player2HandValues.get(j).equals("J")){
+      player2HandValues.remove(j);
+      player2HandValues.add(j,"11");
+    }//end if
+    if(player2HandValues.get(j).equals("Q")){
+      player2HandValues.remove(j);
+      player2HandValues.add(j,"12");
+    }//end if
+    if(player2HandValues.get(j).equals("K")){
+      player2HandValues.remove(j);
+      player2HandValues.add(j,"13");
+    }//end if
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+
+  ArrayList<String> player3HandValues = new ArrayList<String>();
+  for (int i = 0; i < player3Hand.size(); i++){
+    //System.out.println(player1Hand.get(i));
+    String value = player3Hand.get(i);
+    String[] splitCard = value.split("-");
+    player3HandValues.add(splitCard[0]);
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+  for (int j = 0; j < player3HandValues.size(); j++){
+    //System.out.println(player1HandValues.get(j));
+    if(player3HandValues.get(j).equals("A")){
+      player3HandValues.remove(j);
+      player3HandValues.add(j,"1");
+    }//end if
+    if(player3HandValues.get(j).equals("J")){
+      player3HandValues.remove(j);
+      player3HandValues.add(j,"11");
+    }//end if
+    if(player3HandValues.get(j).equals("Q")){
+      player3HandValues.remove(j);
+      player3HandValues.add(j,"12");
+    }//end if
+    if(player3HandValues.get(j).equals("K")){
+      player3HandValues.remove(j);
+      player3HandValues.add(j,"13");
+    }//end if
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+
+  ArrayList<String> player4HandValues = new ArrayList<String>();
+  for (int i = 0; i < player4Hand.size(); i++){
+    //System.out.println(player1Hand.get(i));
+    String value = player4Hand.get(i);
+    String[] splitCard = value.split("-");
+    player4HandValues.add(splitCard[0]);
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
+  for (int j = 0; j < player4HandValues.size(); j++){
+    //System.out.println(player1HandValues.get(j));
+    if(player4HandValues.get(j).equals("A")){
+      player4HandValues.remove(j);
+      player4HandValues.add(j,"1");
+    }//end if
+    if(player4HandValues.get(j).equals("J")){
+      player4HandValues.remove(j);
+      player4HandValues.add(j,"11");
+    }//end if
+    if(player4HandValues.get(j).equals("Q")){
+      player4HandValues.remove(j);
+      player4HandValues.add(j,"12");
+    }//end if
+    if(player4HandValues.get(j).equals("K")){
+      player4HandValues.remove(j);
+      player4HandValues.add(j,"13");
+    }//end if
+  }//end for
+  //System.out.println(player1HandValues); --> check, delete later
 
   //function done by Lauren
-  ArrayList<String> player1Five = pickFive(player1Hand);
-  ArrayList<String> player2Five = pickFive(player2Hand);
-  ArrayList<String> player3Five = pickFive(player3Hand);
-  ArrayList<String> player4Five = pickFive(player4Hand);
+  //(note: Janie) modified to take into account assigning values done above
+  ArrayList<String> player1Five = pickFive(player1HandValues);
+  ArrayList<String> player2Five = pickFive(player2HandValues);
+  ArrayList<String> player3Five = pickFive(player3HandValues);
+  ArrayList<String> player4Five = pickFive(player4HandValues);
   //this part is just for checking, can be deleted later
-  System.out.println(player1Five);
-  System.out.println(player1Hand);
-  System.out.println(player2Five);
-  System.out.println(player2Hand);
+  //modified for more clarification in checking
+  System.out.println("Player 1 draws these five cards: " + player1Five);
+  System.out.println("Player 1 has these eight cards in hand: " + player1HandValues);
+  System.out.println("Player 2 draws these five cards: " + player2Five);
+  System.out.println("Player 2 has these eight cards in hand: " + player2HandValues);
+  System.out.println("Player 3 draws these five cards: " + player3Five);
+  System.out.println("Player 3 has these eight cards in hand: " + player3HandValues);
+  System.out.println("Player 4 draws these five cards: " + player4Five);
+  System.out.println("Player 4 has these eight cards in hand: " + player4HandValues);
 
   }//end main
 
