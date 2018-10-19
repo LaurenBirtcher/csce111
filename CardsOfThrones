@@ -89,12 +89,20 @@ class CardsOfThrones{
   System.out.println("Player 4 draws these five cards: " + player4Five);
   System.out.println("Player 4 has these eight cards in hand: " + player4HandValues);
   
-  //NEXT ---> each player chooses 1 card to play
+  //ideas about what to do next
+  //NEXT ---> each player chooses 1 card to play ---> do as a function
   Scanner keyboard = new Scanner(System.in);
   System.out.println("Player 1, these are your five cards on hand: " + player1Five);
   System.out.println("Please choose a card to play: ");
   playCard = keyboard.nextLine();
-  //user based or computer playing to win?
+  //display player's five cards that are in hand
+  //user input player1 choose 1 card to play (by numerical value)
+  //use for loop to run through the cards in hand to look for that value to pull,
+  //just in case there are two 5's in the hand ---> play the first 5
+  //add the value into an new array for cards played that round and remove that value from hand,
+  //element[0] player1 card, element[1] player2 card, etc.
+  //repeat for players 2-4
+  //find winner by comparing values (consider 7 as the highest overall value)
 
   }//end main
   
