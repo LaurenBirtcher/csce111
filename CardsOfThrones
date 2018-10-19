@@ -91,10 +91,8 @@ class CardsOfThrones{
   
   //ideas about what to do next
   //NEXT ---> each player chooses 1 card to play ---> do as a function
-  Scanner keyboard = new Scanner(System.in);
   System.out.println("Player 1, these are your five cards on hand: " + player1Five);
   System.out.println("Please choose a card to play: ");
-  playCard = keyboard.nextLine();
   //display player's five cards that are in hand
   //user input player1 choose 1 card to play (by numerical value)
   //use for loop to run through the cards in hand to look for that value to pull,
