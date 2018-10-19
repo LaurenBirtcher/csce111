@@ -63,7 +63,7 @@ class CardsOfThrones{
   System.out.println(player4+"'s hand is "+player4Hand);
   
   //assigning values done by Janie
-  //note: can be generalized for all four players --> need to put into function 
+  //note: can be generalized for all four players --> need to put into a general function 
   //since the suits do not matter in ranking to determine winner,
   //assign corresponding numerical values as soon as the deck is split evenly among all players (13 each)
   ArrayList<String> player1HandValues = new ArrayList<String>();
@@ -189,7 +189,7 @@ class CardsOfThrones{
   ArrayList<String> player3Five = pickFive(player3HandValues);
   ArrayList<String> player4Five = pickFive(player4HandValues);
   //this part is just for checking, can be deleted later
-  //modified for more clarification in checking
+  //(note: Janie) modified for more clarification in checking
   System.out.println("Player 1 draws these five cards: " + player1Five);
   System.out.println("Player 1 has these eight cards in hand: " + player1HandValues);
   System.out.println("Player 2 draws these five cards: " + player2Five);
@@ -198,6 +198,8 @@ class CardsOfThrones{
   System.out.println("Player 3 has these eight cards in hand: " + player3HandValues);
   System.out.println("Player 4 draws these five cards: " + player4Five);
   System.out.println("Player 4 has these eight cards in hand: " + player4HandValues);
+  
+  //each player chooses 1 card to play
 
   }//end main
 
