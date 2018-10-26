@@ -4,7 +4,7 @@ CSCE111
 Developed on PC
 By: Lauren, Janie, Jared, and Camdyn
 All four team members turned in same code.
-Before running code, download Cards.ZIP to c drive (on PC)
+Before running code, download Cards file to C drive (on PC)
 Rules:
 1. This game requires 4 players, who will all choose a character.
 2. Each player gets 13 cards and keeps 5 in their hand. (No Jokers)
