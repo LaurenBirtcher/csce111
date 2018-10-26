@@ -1,7 +1,22 @@
 /*
-Project by Lauren, Janie, Jared, and Camdyn
+Card Game Project
 CSCE111
+Developed on PC
+By: Lauren, Janie, Jared, and Camdyn
+All four team members turned in same code.
+Before running code, download Cards.ZIP to c drive (on PC)
+Rules:
+1. This game requires 4 players, who will all choose a character.
+2. Each player gets 13 cards and keeps 5 in their hand. (No Jokers)
+3. The highest card value wins, but a 7 beats all numerical cards.
+4. In the event of a tie, compare the suits (Hearts > Diamonds > Spades > Clubs)/
+5. In the event of two male face cards being played a rivalry is created, both players in the rivalry get a -1 to their next played card.
+6. In the event of a male and female face card being played an alliance is formed and both players get a +1 to their next played card.
+7. In the event that three or more face cards are played a triple point round is initiated, the winner of this round gets 3 points.
+   During a triple round no new alliances or rivalries can be made.
+8. The winner is whichever player gets to 10 points first.
 */
+
 //Import section
 import javax.swing.*;
 import java.util.*;
@@ -26,8 +41,12 @@ class FinishedGame { //Start Class
   public static void main(String[] args){//Start Main
 
       game();
-  }
+  }//End Main
 
+  /**
+  Method game will do the following: This method calls other methods and plays the card game.
+  Authors: Camdyn and Jared
+  */
   public static void game() {
 
     Intro(); //calling intro method
@@ -65,7 +84,14 @@ class FinishedGame { //Start Class
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
   //Method created by Camdyn Perkins: in:array - out:int
+  /**
+  Method showHand will do the following: This method shows the cards to users.
+  @param array
+  @return int
+  Author: Camdyn
+  */
   public static int showHand(String[] hand){//start showHand method
 
     //initialize variables for method
@@ -123,7 +149,12 @@ class FinishedGame { //Start Class
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //in: string[]"cards played" - out: int[]"who gets the point and how many points and next rounds infoes"
-
+  /**
+  Method values will do the following: This method takes in the cards played and uses values to determine who gets points.
+  @param String array
+  @return int array
+  Author: Janie
+  */
   public static int[] values(String[] cards, int[] info) {//start values method
 
     //initialize variables
@@ -176,7 +207,12 @@ class FinishedGame { //Start Class
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //in: String[]"cards played", float[]"power for each player", int[]"infoes this round" - out: int[]"who gets the point and how many points and next rounds infoes"
-
+  /**
+  Method points will do the following: This method takes in three arrays and determines who wins the round.
+  @param String arrays
+  @return int array
+  Authors: Jared and Camdyn
+  */
   public static int[] points(String[] cards, float[] power, int[] info) {//start points method
 
     //initialize variables
@@ -245,7 +281,12 @@ class FinishedGame { //Start Class
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //in: float[]"power for each player" - out: int[]"who gets the point and how many points and next rounds infoes"
-
+  /**
+  Method nextinfo will do the following: This method uses an array to continue the round and determine points.
+  @param float array
+  @return int array
+  Authors: Camdyn and Jared
+  */
   public static int[] nextinfo(float[] power, int[] info) {//start nextinfo method
 
     man = 0;
@@ -287,6 +328,11 @@ class FinishedGame { //Start Class
 //String[][][] current = draw(decks, 5, hand);
 
 //in: none - out: String[][]"each players personal draw pile"
+/**
+Method deal will do the following: This method shuffles and deals cards.
+@return String array
+Authors: Janie and Lauren
+*/
 public static String[][] deal() {//start deal method
 
   //initialize variables
@@ -310,10 +356,15 @@ public static String[][] deal() {//start deal method
   //returns the draw piles
   return decks;}//end deal method
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //in: String[][]"draw piles", int"number of cards to draw", String[][]"player hands"
+/**
+Method draw will do the following: This method allows players to draw cards from their hand.
+@param String double arrays, int
+@return array (player hands and remaining draw piles)
+Authors: Janie and Lauren
+*/
 public static String[][][] draw(String[][] decks, int num, String[][] hand) {//start draw method
 
   //loop each player
@@ -342,6 +393,12 @@ public static String[][][] draw(String[][] decks, int num, String[][] hand) {//s
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  /**
+  Method scores will do the following: This method adds scores to the scoreboard.
+  @param int arrays
+  @return points
+  Authors: Camdyn and Jared
+  */
   public static int[] scores(int[] info, int[] score) { //start scores method
 
     points[info[5]] += info[6];
@@ -355,25 +412,33 @@ JOptionPane.showMessageDialog(null,"SCORE BOARD\n\n"+ //Setting up scoreboard
 
   } //end scores method
 
+  /**
+  Method draw will do the following: This method introduces the game and discusses rules.
+  Authors: Janie and Lauren
+  */
   public static void Intro() { //start Intro method
 
     JOptionPane.showMessageDialog(null, "Welcome to Card of Thrones!\n" +
                                         "Summers span decades. Winters can last a lifetime, and the struggle for the Iron Throne begins.\n" +
                                         "If you follow the rules and play your cards carefully, maybe the Throne will be yours...");
 
-    JOptionPane.showMessageDialog(null, "Rule 1: To begin, let's go over the rules");
-    JOptionPane.showMessageDialog(null, "Rule 2: This game requires 4 players, who will all choose a character");
-    JOptionPane.showMessageDialog(null, "Rule 3: Each player gets 13 cards and keeps 5 in their hand (No Jokers)");
-    JOptionPane.showMessageDialog(null, "Rule 4: The highest card value wins, but a 7 beats all numerical cards");
-    JOptionPane.showMessageDialog(null, "Rule 5: In the event of a tie, compare the suits (Hearts > Diamonds > Spades > Clubs)");
-    JOptionPane.showMessageDialog(null, "Rule 6: In the event of two male face cards being played a rivalry is created, both players in the rivalry get a -1 to their next played card\n"+
-                                        "Rule 7: In the event of a male and female face card being played an alliance is formed and both players get a +1 to their next played card");
-    JOptionPane.showMessageDialog(null, "Rule 8: In the event that three or more face cards are played a triple point round is initiated, the winner of this round gets 3 points\n"+
-                                        "During a triple round no new alliances or rivalries can be made");
+    JOptionPane.showMessageDialog(null, "Rule 1: To begin, let's go over the rules.");
+    JOptionPane.showMessageDialog(null, "Rule 2: This game requires 4 players, who will all choose a character.");
+    JOptionPane.showMessageDialog(null, "Rule 3: Each player gets 13 cards and keeps 5 in their hand. (No Jokers)");
+    JOptionPane.showMessageDialog(null, "Rule 4: The highest card value wins, but a 7 beats all numerical cards.");
+    JOptionPane.showMessageDialog(null, "Rule 5: In the event of a tie, compare the suits. (Hearts > Diamonds > Spades > Clubs)");
+    JOptionPane.showMessageDialog(null, "Rule 6: In the event of two male face cards being played a rivalry is created, both players in the rivalry get a -1 to their next played card.\n"+
+                                        "Rule 7: In the event of a male and female face card being played an alliance is formed and both players get a +1 to their next played card.");
+    JOptionPane.showMessageDialog(null, "Rule 8: In the event that three or more face cards are played a triple point round is initiated, the winner of this round gets 3 points.\n"+
+                                        "During a triple round no new alliances or rivalries can be made.");
     JOptionPane.showMessageDialog(null, "Rule 9: The winner is whichever player gets to 10 points first.");
 
   } //end scores method
 
+  /**
+  Method CharacterSelect will do the following: This method allows players to choose which player they want to be.
+  Authors: Janie and Lauren
+  */
   public static void CharacterSelect() { //start CharacterSelect method
 
     //Player Selection (Robb Stark, Daenerys Targaryen, King Joffrey, and Stannis Baratheon)
@@ -419,6 +484,11 @@ JOptionPane.showMessageDialog(null,"SCORE BOARD\n\n"+ //Setting up scoreboard
 
   } //end CharacterSelect method
 
+  /**
+  Method close will do the following: This method ends the game and determines the winner.
+  @param int array
+  Authors: Camdyn and Jared
+  */
   public static void close(int[] points) { //start close method
 
     int winner = 0;
@@ -430,6 +500,11 @@ JOptionPane.showMessageDialog(null,"SCORE BOARD\n\n"+ //Setting up scoreboard
 
   }//end close method
 
+  /**
+  Method showPlayed will do the following: This method shows what cards were played.
+  @param String array
+  Authors: Camdyn and Jared
+  */
   public static void showPlayed(String[] played) { //start showPlayed method
     String filename;
     ImageIcon icon;
@@ -454,8 +529,6 @@ JOptionPane.showMessageDialog(null,"SCORE BOARD\n\n"+ //Setting up scoreboard
       JOptionPane.showMessageDialog(null, "Cards played this round ");
       JOptionPane.showMessageDialog(null,panel);
 
-    } //end showPlayed method
+    } //End showPlayed method
 
-
-
-} //end class
+} //End Class
