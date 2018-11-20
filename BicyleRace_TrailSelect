@@ -1,1 +1,88 @@
-class TrailSelect
+/**
+
+@author Lauren Birtcher
+@version 11/20/18
+*/
+
+/**
+This class will present a series of questions to the user in order to select a
+bike trail to go on. The following website was used to select one of four trails
+in the United States of varying skill level and distance:
+https://dailyburn.com/life/fitness/best-bike-trails-america/.
+*/
+
+import javax.swing.JOptionPane;
+
+public class TrailSelect{
+
+  /**
+  This method will provide options of beginner, intermediate, or advanced skill level.
+  There will be a series of questions to help the user decide their skill level.
+  The method will return the skill level of the user.
+  @return the skill level of the user (beginner, intermediate, or advanced)
+  */
+  public String SkillLevel(){
+    String skill = "";
+    //https://stackoverflow.com/questions/1257420/making-a-joptionpane-with-4-options
+    //String[] options = new String[] {"Yes", "No"};
+    //int response = JOptionPane.showOptionDialog(null, "Have you ever been on a bike ride?", "Skill Level",
+        //JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+        //null, options, options[0]);
+    Object[] possibleValues = {"Yes", "No"};
+    Object selectedValue = JOptionPane.showInputDialog(null,"Have you ever been on a bike ride?", "Skill Level", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+    if (selectedValue == "Yes"){
+      Object[] options = {"I was born to ride bikes!", "I can stay upright most of the time.", "I am not a huge fan of bikes."};
+      Object response = JOptionPane.showInputDialog(null,"That's fantastic! How comfortable are you on a bike?", "Skill Level", JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+      if (response == "I was born to ride bikes!"){
+        skill = "Advanced";
+      }//end if
+      if (response == "I can stay upright most of the time."){
+        skill = "Intermediate";
+      }else{
+        skill = "Beginner";
+      }//end if else
+    }//end if
+
+    System.out.println(skill);
+    return skill;
+  }//end SkillLevel
+
+  /**
+  This method will include several ranges of miles for the user to choose from.
+  There will also be information given for the estimated time it would take to
+  complete the given mileage.  The method will return a variable for the distance
+  range the user prefers.
+  @return a variable representing the distance range the user prefers
+  */
+  public String Distance(){
+    String shortRide, mediumRide, longRide;
+    return "A";
+  }//end Distance
+
+  /**
+  This method will ask the preferred destination for a bike ride.  There will be
+  photos for the user to choose from.  Then, the user will get to choose a destination
+  they would like to bike.  This method will return the name of the destination.
+  @return the name of the preferred destination to go on a bike ride
+  */
+  public String Destination(){
+    return "A";
+  }//end Destination
+
+  /**
+  This method will accept input from the three other methods in order to select
+  a trail for the user to go on for the rest of the program.  This method will
+  use a series of if statements (or possibly switch) to choose the best possible
+  bike ride for the user.  If two of the three criteria match a specific trail,
+  that trail will be selected.  If the three criteria differ, a trail appropriate
+  for varying skill level and distance will be selected.
+  @param skill a word representing the skill level of the user
+  @param distance a variable for the distance range the user prefers
+  @param destination a name of a place for the bike ride
+  @return the trail that the user will bike
+  */
+  public String ChooseTrail(String skill, String distance, String destination){
+    return "A";
+  }//end ChooseTrail
+
+}//end class
