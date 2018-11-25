@@ -1,2 +1,57 @@
-class RidePrep{
-}
+/**
+
+@author Janie Che
+@version 11/20/18
+
+*/
+
+/**
+This class will take the user through a series of preparation steps to prepare
+for the bike trip.
+*/
+
+import java.util.*;
+import javax.swing.JOptionPane;
+
+public class RidePrep {
+
+  /**
+  This method prep will ask the user to build a packing list based on the trail
+  selected from the TrailSelect class. The items will use input into an array
+  of strings. The method will return the packing list to display.
+  @param String[] packList
+  @return array of items in the packing list
+  */
+  public static String[] prep(String[] packList) {
+    //code here
+    return packList;
+  }//end prep
+
+  /**
+  This method reminders will link user to a video for safety tips and reminders.
+  A string array of summary tips from the video will be returned for display.
+  @param String[] tips
+  @return array of summary tips from the video
+  */
+  public static String[] reminders(String[] tips) {
+    //code here
+    return tips;
+  }//end reminders
+
+  /**
+  This method finalMap displays the final map the user takes based on the trail
+  selection from the TrailSelect class.
+  */
+  public static void finalMap() {
+    //code here
+  }//end finalMap
+
+  /**
+  This method animateBike prints a bike as ASCII art. It may be used as a smooth
+  transition step throughout.
+  */
+  public static void animateBike() {
+    //code here
+  }//end animateBike
+
+}//end class RidePrep
