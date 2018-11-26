@@ -18,7 +18,8 @@ public class RidePrep {
   /**
   This method prep will ask the user to build a packing list based on the trail
   selected from the TrailSelect class. The items will use input into an array
-  of strings. The method will return the packing list to display.
+  of strings. The method will return the packing list to display. Recommendations
+  taken from: https://trektravel.com/frequently-asked-questions/packing-list/
   @param String[] packList
   @return array of items in the packing list
   */
