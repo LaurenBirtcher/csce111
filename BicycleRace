@@ -1,11 +1,20 @@
-public class BicycleRace  {
+/**
+
+@author Lauren Birtcher, Janie Che, Taylor Hoagland, Haley McCannon
+@version 11/27/18
+
+*/
+
+import java.util.*;
+
+public class BicycleRace {
 
   public static void main(String[] args) {
     TrailSelect myTrail = new TrailSelect();
     RidePrep myPrep = new RidePrep();
     VirtualTrip myTrip= new VirtualTrip();
     BikeSite mySite = new BikeSite();
-    
+
   }//end main
 
 }//end class
