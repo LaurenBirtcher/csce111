@@ -1,2 +1,51 @@
-class BikeSite{
-}
+/**
+
+@author Taylor Hoagland
+@version 11/26/18
+
+*/
+
+/**
+This class will take the user to a website with multiple pages with biking pictures, videos, and information.
+*/
+
+import java.util.*;
+
+public class BikeSite{
+
+/**
+This method will create the website with a main title, team member names, and the song name.
+It will have links to the other pages.
+*/
+public static void method1()
+{
+  // code here
+}//end method 1
+
+/**
+This method will create a new page (linked on first), with a title and pictures of bicycles and bike related equipment.
+It will have pictures of water bottles, helmets, and bike shoes.
+*/
+public static void method2()
+{
+  // code here
+}//end method 2
+
+/**
+This method will create a new page (linked on first), with a title and videos.
+There will be videos of biking on various trails as well as videos of biking "fails".
+*/
+public static void method3()
+{
+  // code here
+} // end method3
+
+/**
+This method will create a new page (linked on first), with a title and various boiking jokes.
+*/
+public static void method4()
+{
+  // code here
+} // end method4
+
+} // end class bicycleSite
