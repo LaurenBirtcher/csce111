@@ -1,2 +1,79 @@
-class VirtualTrip{
-}
+/**
+@author Haley McCannon
+@version 11/27/2018
+
+*/
+
+
+/**
+The VirtualTrip class will take the user on a virtual bike experience
+based off of the trail chosen for them in the TrailSelect class. Different
+instances, images, information, etc will be printed through the methods to
+describe the trail and the randoms happenings that may occur on that trail.
+*/
+
+public class VirtualTrip {
+
+  /**
+  The Ride method takes the user on their journey through the chosen trail. The
+  other methods will be called here.
+  */
+  public static void Ride(String trail) {
+
+    //code here
+
+  } //end Ride method
+
+  /**
+  The FlatTire method will take the user through the experience of getting a
+  flat tire. This will include images and access to our bag that was packed in
+  the RidePrep class.
+  */
+  public static void FlatTire(String[] packList){
+
+    //code here
+
+  } //end FlatTire method
+
+  /**
+  The Stuck method will take the user through the experience of getting
+  stuck in the mud. Oh no! This method will include images and access to our bag that was packed in
+  the RidePrep class.
+  */
+  public static void Stuck(String[] packList){
+
+    //code here
+
+  }// end Stuck method
+
+  /**
+  The niceView method will show beautiful views and scenery from the users
+  chosen trip.
+  */
+  public static void NiceView(){
+
+    //code here
+
+  } // end NiceView method
+
+  /**
+  The Break method will be called randomly when the user needs a water
+  or snack break. They will be able to access their pack and choose a snack!
+  */
+  public static void Break(String[] packList){
+
+    //code here
+
+  } //end Break method
+
+  /**
+  The Animal method will choose a random animal to enounter based on the
+  geography of the area chosen in the TrailSelect class. 
+  */
+  public static void Animal(){
+
+    //code here
+
+  } //end Animal method
+
+} //end VirtualTrip class
