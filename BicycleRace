@@ -1,2 +1,11 @@
-class BicycleRace{
-}
+public class BicycleRace  {
+
+  public static void main(String[] args) {
+    TrailSelect myTrail = new TrailSelect();
+    RidePrep myPrep = new RidePrep();
+    VirtualTrip myTrip= new VirtualTrip();
+    BikeSite mySite = new BikeSite();
+    
+  }//end main
+
+}//end class
