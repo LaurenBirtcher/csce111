@@ -53,7 +53,9 @@ public class RidePrep {
 
   /**
   This method packPrep will ask the user to input packing list items into an array
-  of strings. The method will return the packing list to display.
+  of strings. A few items will be recommended based on the trail selected from
+  TrailSelect. The method will return the packing list to display. This will be called
+  in the method recommendPack.
   @param String[] packList
   @return array of items in packing list
   */
@@ -63,11 +65,15 @@ public class RidePrep {
   }//end packPrep
 
   /**
-  This method finalMap displays the final map the user takes based on the trail
-  selection from the TrailSelect class.
+  This method finalMap will ask the user to input if he/she is ready for the trip.
+  It will then call the answers from the method ChooseTrail in TrailSelect. It will
+  display the final trail selected and a photo of the final trail from TrailSelect.
+  @param String inputReady
+  @return the destination
   */
-  public static void finalMap() {
+  public static String finalMap(String destination) {
     //code here
+    return destination;
   }//end finalMap
 
   /**
