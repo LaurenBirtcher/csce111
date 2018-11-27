@@ -1,43 +1,66 @@
 /**
 
 @author Janie Che
-@version 11/20/18
+@version 11/26/18
 
 */
 
 /**
-This class will take the user through a series of preparation steps to prepare
-for the bike trip.
+This class will take the user through a series of steps to prepare for the bike trip.
 */
 
 import java.util.*;
 import javax.swing.JOptionPane;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class RidePrep {
 
   /**
-  This method prep will ask the user to build a packing list based on the trail
-  selected from the TrailSelect class. The items will use input into an array
-  of strings. The method will return the packing list to display. Recommendations
-  taken from: https://trektravel.com/frequently-asked-questions/packing-list/
-  @param String[] packList
-  @return array of items in the packing list
+  This method websiteLink will link the user to a website when prompted. The website
+  https://trektravel.com/frequently-asked-questions/packing-list/ will open. This
+  will be used in the method recommendPack.
   */
-  public static String[] prep(String[] packList) {
-    //code here
-    return packList;
-  }//end prep
+  public static void websiteLink() throws Exception {
+    //referred to https://www.youtube.com/watch?v=C_Y6yrkj9Sg to learn how to open URL from Java
+    Desktop web = Desktop.getDesktop();
+    web.browse(new URI("https://trektravel.com/frequently-asked-questions/packing-list/#printpackinglist"));
+  }//end websiteLink
 
   /**
-  This method reminders will link user to a video for safety tips and reminders.
-  A string array of summary tips from the video will be returned for display.
-  @param String[] tips
-  @return array of summary tips from the video
+  This method recommendPack will ask the user to build a packing list. An option to
+  open a website https://trektravel.com/frequently-asked-questions/packing-list/#printpackinglistThe
+  for recommended items is available. Then, the user will be asked to input items
+  into an array of strings by the packPrep method.
   */
-  public static String[] reminders(String[] tips) {
+  public static void recommendPack() throws Exception {
+    JOptionPane.showMessageDialog(null,"A packing checklist for your cycling vacation!");
+    Object[] possibleValues = {"Yes", "No"};
+    Object selectedValue = JOptionPane.showInputDialog(null,"Would you like a list of recommendations? Click Yes!", "Link to Recommendations?", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+    if (selectedValue == "Yes") {
+      JOptionPane.showMessageDialog(null,"I will link you to a website for recommendations.");
+      JOptionPane.showMessageDialog(null,"...LOADING...");
+      Thread.sleep(1500);
+      websiteLink();
+      Thread.sleep(4000);
+      JOptionPane.showMessageDialog(null,"Let's build your own packing list now!");
+      //packPrep();
+    } else {
+      JOptionPane.showMessageDialog(null,"Let's move on!");
+      //packPrep();
+    }//end if else
+  }//end recommendPack
+
+  /**
+  This method packPrep will ask the user to input packing list items into an array
+  of strings. The method will return the packing list to display.
+  @param String[] packList
+  @return array of items in packing list
+  */
+  public static String[] packPrep(String[] packList) {
     //code here
-    return tips;
-  }//end reminders
+    return packList;
+  }//end packPrep
 
   /**
   This method finalMap displays the final map the user takes based on the trail
