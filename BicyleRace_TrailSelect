@@ -1,5 +1,4 @@
 /**
-
 @author Lauren Birtcher
 @version 11/20/18
 */
@@ -17,7 +16,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class TrailSelect{
-
   /**
   This method will provide options of beginner, intermediate, or advanced skill level.
   There will be a series of questions to help the user decide their skill level.
@@ -84,7 +82,7 @@ public class TrailSelect{
 
     String pic1 = "cal.jpg";
     ShowPicture(pic1);
-    JOptionPane.showMessageDialog(null, "Beautiful right? Please press 'ok' to see the next picture.");
+    JOptionPane.showMessageDialog(null, "Beautiful right? Please press 'ok' to see the next picture. (You can move the dialog box to get a better view if necessary.)");
 
     String pic2 = "nevada.jpg";
     ShowPicture(pic2);
@@ -97,11 +95,26 @@ public class TrailSelect{
     String pic4 = "colorado.jpg";
     ShowPicture(pic4);
     JOptionPane.showMessageDialog(null, "Mountains are hard to beat! Please press 'ok' to see the next picture.");
+    JOptionPane.showMessageDialog(null, "Please get one last look and decide where you think looks like the best destination.");
 
-    JOptionPane.showMessageDialog(null, "Please get one last look, decide where you think looks like the best destination, and then press the 'x' at the top to close all pictures.");
+    Object[] destinationsOptions = {"Picture 1", "Picture 2", "Picture 3", "Picture 4"};
+    Object destinationChoice = JOptionPane.showInputDialog(null,"Based on the pictures, which destination do you prefer for your bike ride?", "Destination", JOptionPane.INFORMATION_MESSAGE, null, destinationsOptions, destinationsOptions[0]);
 
+    String destination = "Valmont Bike Park";
+    if (destinationChoice == "Picture 1"){
+      destination = "Big Sur";
+      return destination;
+    }//end if for Big Sur
+    if (destinationChoice == "Picture 2"){
+      destination = "Flume Trail";
+      return destination;
+    }//end if for Flume Trail
+    if (destinationChoice == "Picture 3"){
+      destination = "Shark Valley Trail";
+      return destination;
+    }//end if for Shark Valley Trail
 
-    return "A";
+    return destination;
   }//end Destination
 
 
@@ -118,12 +131,27 @@ public class TrailSelect{
   @return the trail that the user will bike
   */
   public String ChooseTrail(String skill, String distance, String destination){
+    //long and picture1 -> Big Sur
+    //long and advanced -> Big Sur
+    //advanced and picture1 -> Big Sur
+
+    //short and picture2 -> Flume Trail
+    //short and intermediate -> Flume Trail
+    //intermediate and picture2 -> Flume Trail
+
+    //short and picture3 -> Shark Valley Trail
+    //short and beginner -> Shark Valley Trail
+    //beginner and picture3 -> Shark Valley Trail
+
+    //medium and picture4 -> Valmont Bike Park
+
+    //else -> Valmont Bike Park
     return "A";
   }//end ChooseTrail
 
 
   /**
-  This method displays pictures in the same directory as the program files
+  This method displays pictures that are saved in the same directory as the program files
   @param picName file path (.jpg) for picture
   */
   //https://www.dummies.com/programming/java/how-to-write-java-code-to-show-an-image-on-the-screen/
@@ -139,3 +167,4 @@ public class TrailSelect{
  }//end ShowPicture
 
 }//end class
+
