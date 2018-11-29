@@ -1,7 +1,7 @@
 /**
 
 @author Janie Che
-@version 11/26/18
+@version 11/28/18
 
 */
 
@@ -11,6 +11,10 @@ This class will take the user through a series of steps to prepare for the bike 
 
 import java.util.*;
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import java.awt.Desktop;
 import java.net.URI;
 
@@ -21,7 +25,7 @@ public class RidePrep {
   https://trektravel.com/frequently-asked-questions/packing-list/ will open. This
   will be used in the method recommendPack.
   */
-  public static void websiteLink() throws Exception {
+  public static void websiteLink() throws Exception{
     //referred to https://www.youtube.com/watch?v=C_Y6yrkj9Sg to learn how to open URL from Java
     Desktop web = Desktop.getDesktop();
     web.browse(new URI("https://trektravel.com/frequently-asked-questions/packing-list/#printpackinglist"));
@@ -31,56 +35,106 @@ public class RidePrep {
   This method recommendPack will ask the user to build a packing list. An option to
   open a website https://trektravel.com/frequently-asked-questions/packing-list/#printpackinglistThe
   for recommended items is available. Then, the user will be asked to input items
-  into an array of strings by the packPrep method.
+  into an array of strings by the packPrep and finishPacking method.
   */
-  public static void recommendPack() throws Exception {
-    JOptionPane.showMessageDialog(null,"A packing checklist for your cycling vacation!");
-    Object[] possibleValues = {"Yes", "No"};
-    Object selectedValue = JOptionPane.showInputDialog(null,"Would you like a list of recommendations? Click Yes!", "Link to Recommendations?", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
-    if (selectedValue == "Yes") {
-      JOptionPane.showMessageDialog(null,"I will link you to a website for recommendations.");
-      JOptionPane.showMessageDialog(null,"...LOADING...");
+  public static void recommendPack() throws Exception{
+    JOptionPane.showMessageDialog(null,"A packing checklist for your cycling vacation!","Ready to Pack??",JOptionPane.INFORMATION_MESSAGE);
+    //referred to https://docs.oracle.com/javase/8/docs/api/javax/swing/JOptionPane.html
+    //to learn how to show a dialog asking the user to select a String
+    Object[] possibleValues = {"Yes, direct me to a website", "No, I can make up my own list"};
+    Object selectedValue = JOptionPane.showInputDialog(null,"Would you like a list of recommendations? Click Yes!","Link to Recommendations?",JOptionPane.INFORMATION_MESSAGE,null,possibleValues,possibleValues[0]);
+    if (selectedValue == "Yes, direct me to a website"){
+      JOptionPane.showMessageDialog(null,"I will link you to a website for recommendations.","Link to Recommendations?",JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(null,"...LOADING...","Link to Recommendations?",JOptionPane.INFORMATION_MESSAGE);
       Thread.sleep(1500);
       websiteLink();
-      Thread.sleep(4000);
-      JOptionPane.showMessageDialog(null,"Let's build your own packing list now!");
-      //packPrep();
-    } else {
-      JOptionPane.showMessageDialog(null,"Let's move on!");
-      //packPrep();
+      Thread.sleep(5000);
+      JOptionPane.showMessageDialog(null,"Let's build your own packing list now!","Ready to Pack??",JOptionPane.INFORMATION_MESSAGE);
+    }else{
+      JOptionPane.showMessageDialog(null,"Let's move on!","Ready to Pack??",JOptionPane.INFORMATION_MESSAGE);
     }//end if else
   }//end recommendPack
 
   /**
   This method packPrep will ask the user to input packing list items into an array
-  of strings. A few items will be recommended based on the trail selected from
-  TrailSelect. The method will return the packing list to display. This will be called
-  in the method recommendPack.
-  @param String[] packList
-  @return array of items in packing list
+  of strings. A few items will be recommended based on basic items needed. The method
+  will call the determineTerrain method
+  @return arraylist of items in packing list called recommendedList
   */
-  public static String[] packPrep(String[] packList) {
-    //code here
-    return packList;
+  //public static String[] packPrep(String[] packList) {
+  public static ArrayList<String> packPrep(){
+    String recommendedItems [] = {"Cycling jerseys", "Active socks", "Cycling shoes",
+      "Lightweight jacket", "Sunglasses", "Wind/Rain jacket", "Helmet", "Saddle"};
+    ArrayList<String> recommendedList = new ArrayList<String>(Arrays.asList(recommendedItems));
+    JOptionPane.showMessageDialog(null,"Here is a basic packing list of recommended items.","Recommended List",JOptionPane.INFORMATION_MESSAGE);
+    //referred to https://stackoverflow.com/questions/16984221/display-arraylist-contents-in-a-joptionpane-showmessagedialog
+    //to learn how to display an arraylist on a message box
+    StringBuilder builder = new StringBuilder("<html>");
+    for (int i = 0;i < recommendedList.size();i++){
+      builder.append(recommendedList.get(i));
+      builder.append("<br>");
+    }
+    builder.append("</html>");
+    JOptionPane.showMessageDialog(null,builder.toString(),"Recommended List",JOptionPane.INFORMATION_MESSAGE);
+    determineTerrain();
+    return recommendedList;
   }//end packPrep
+
+  /**
+  This method determineTerrain will use the method Destination in TrailSelect. It will
+  determine the terrain type based on the trail selected. It will then return a string
+  with the terrain type for use in the method packPrep.
+  @return string of terrain type called terrainType
+  */
+  public static String determineTerrain(){
+    //TrailSelect myTrail = new TrailSelect();
+    //String destination = myTrail.Destination();
+    String terrainType = "";
+    destination = "Big Sur"; //test if terrainType works
+    if (destination == "Big Sur"){
+      terrainType = "Road";
+    }else if (destination == "Flume Trail"){
+      terrainType = "Mountain";
+    }else if (destination == "Shark Valley Trail"){
+      terrainType = "Road";
+    }else if (destination == "Valmont Bike Park"){
+      terrainType = "Mountain";
+    }//end if else
+    JOptionPane.showMessageDialog(null,"Based on the trial selected, the terrain is " + terrainType + ".","Add to Packing List",JOptionPane.INFORMATION_MESSAGE);
+    return terrainType;
+  }//end determineTerrain
+
+  /**
+  This method finishPacking will ask the user to input more packing items if he/she wants to.
+  The items will be displayed.
+  */
+  public static ArrayList<String> finishPacking(){
+    Object[] options = {"Yes, I would like to add items", "No, the recommended list is enough"};
+    Object response = JOptionPane.showInputDialog(null,"Are there any other items you would like to add?","Add to Packing List?",JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
+    if (response == "Yes, I would like to add items"){
+      //referred to https://docs.oracle.com/javase/8/docs/api/javax/swing/JOptionPane.html
+      //to learn how to show a dialong asking the user to type in a String
+      //USE FOR LOOP
+      String inputItems = JOptionPane.showInputDialog("Enter an item you would like to add: ");
+    }//end if
+    JOptionPane.showMessageDialog(null,"Packing List Completed!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
+    return null;
+  }//end finishPacking
 
   /**
   This method finalMap will ask the user to input if he/she is ready for the trip.
   It will then call the answers from the method ChooseTrail in TrailSelect. It will
   display the final trail selected and a photo of the final trail from TrailSelect.
-  @param String inputReady
-  @return the destination
   */
-  public static String finalMap(String destination) {
+  public static void finalMap(){
     //code here
-    return destination;
   }//end finalMap
 
   /**
   This method animateBike prints a bike as ASCII art. It may be used as a smooth
   transition step throughout.
   */
-  public static void animateBike() {
+  public static void animateBike(){
     //code here
   }//end animateBike
 
