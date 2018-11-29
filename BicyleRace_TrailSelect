@@ -12,6 +12,9 @@ https://dailyburn.com/life/fitness/best-bike-trails-america/.
 */
 
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class TrailSelect{
 
@@ -22,7 +25,7 @@ public class TrailSelect{
   @return the skill level of the user (beginner, intermediate, or advanced)
   */
   public String SkillLevel(){
-    String skill = "";
+    String skill = "Beginner";
     //https://stackoverflow.com/questions/1257420/making-a-joptionpane-with-4-options
     //String[] options = new String[] {"Yes", "No"};
     //int response = JOptionPane.showOptionDialog(null, "Have you ever been on a bike ride?", "Skill Level",
@@ -35,17 +38,16 @@ public class TrailSelect{
       Object response = JOptionPane.showInputDialog(null,"That's fantastic! How comfortable are you on a bike?", "Skill Level", JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
       if (response == "I was born to ride bikes!"){
         skill = "Advanced";
-      }//end if
+        return skill;
+      }//end if for Advanced
       if (response == "I can stay upright most of the time."){
         skill = "Intermediate";
-      }else{
-        skill = "Beginner";
-      }//end if else
+        return skill;
+      }//end if for Intermediate
     }//end if
-
-    System.out.println(skill);
     return skill;
   }//end SkillLevel
+
 
   /**
   This method will include several ranges of miles for the user to choose from.
@@ -55,9 +57,25 @@ public class TrailSelect{
   @return a variable representing the distance range the user prefers
   */
   public String Distance(){
-    String shortRide, mediumRide, longRide;
-    return "A";
+    String distanceRide = "";
+    JOptionPane.showMessageDialog(null, "The average speed for mountain bike riders is 6.98 mph! This means 10 miles would take approximately 42 minutes.");
+    Object[] distanceRanges = {"0-25 miles", "25-50 miles", "over 50 miles"};
+    Object selectedValue = JOptionPane.showInputDialog(null,"What distance range do you prefer for your bike ride?", "Distance Range", JOptionPane.INFORMATION_MESSAGE, null, distanceRanges, distanceRanges[0]);
+    if (selectedValue == "0-25 miles"){
+      distanceRide = "shortRide";
+      return distanceRide;
+    }//end if for shortRide
+    if (selectedValue == "25-50 miles"){
+      distanceRide = "mediumRide";
+      return distanceRide;
+    }//end if for mediumRide
+    if (selectedValue == "over 50 miles"){
+      distanceRide = "longRide";
+      return distanceRide;
+    }//end if for longRide
+    return distanceRide;
   }//end Distance
+
 
   /**
   This method will ask the preferred destination for a bike ride.  There will be
@@ -66,8 +84,30 @@ public class TrailSelect{
   @return the name of the preferred destination to go on a bike ride
   */
   public String Destination(){
+    JOptionPane.showMessageDialog(null, "We are getting closer to finding the perfect bike trail for you!  We have four beautiful destinations for you to choose from.");
+
+    String pic1 = "cal.jpg";
+    ShowPicture(pic1);
+    JOptionPane.showMessageDialog(null, "Beautiful right? Please press 'ok' to see the next picture.");
+
+    String pic2 = "nevada.jpg";
+    ShowPicture(pic2);
+    JOptionPane.showMessageDialog(null, "That view is incredible! Please press 'ok' to see the next picture.");
+
+    String pic3 = "florida.jpg";
+    ShowPicture(pic3);
+    JOptionPane.showMessageDialog(null, "Wide open spaces! Please press 'ok' to see the next picture.");
+
+    String pic4 = "colorado.jpg";
+    ShowPicture(pic4);
+    JOptionPane.showMessageDialog(null, "Mountains are hard to beat! Please press 'ok' to see the next picture.");
+
+    JOptionPane.showMessageDialog(null, "Please get one last look, decide where you think looks like the best destination, and then press the 'x' at the top to close all pictures.");
+
+
     return "A";
   }//end Destination
+
 
   /**
   This method will accept input from the three other methods in order to select
@@ -85,4 +125,22 @@ public class TrailSelect{
     return "A";
   }//end ChooseTrail
 
+
+  /**
+  This method displays pictures in the same directory as the program files
+  @param picName file path (.jpg) for picture
+  */
+  //https://www.dummies.com/programming/java/how-to-write-java-code-to-show-an-image-on-the-screen/
+  public static void ShowPicture(String picName) {
+   JFrame frame = new JFrame();
+   ImageIcon icon = new ImageIcon(picName);
+   JLabel label = new JLabel(icon);
+   frame.add(label);
+   frame.setDefaultCloseOperation
+          (JFrame.EXIT_ON_CLOSE);
+   frame.pack();
+   frame.setVisible(true);
+ }//end ShowPicture
+
 }//end class
+
