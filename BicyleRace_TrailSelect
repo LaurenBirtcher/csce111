@@ -26,11 +26,7 @@ public class TrailSelect{
   */
   public String SkillLevel(){
     String skill = "Beginner";
-    //https://stackoverflow.com/questions/1257420/making-a-joptionpane-with-4-options
-    //String[] options = new String[] {"Yes", "No"};
-    //int response = JOptionPane.showOptionDialog(null, "Have you ever been on a bike ride?", "Skill Level",
-        //JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-        //null, options, options[0]);
+    //https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
     Object[] possibleValues = {"Yes", "No"};
     Object selectedValue = JOptionPane.showInputDialog(null,"Have you ever been on a bike ride?", "Skill Level", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
     if (selectedValue == "Yes"){
@@ -143,4 +139,3 @@ public class TrailSelect{
  }//end ShowPicture
 
 }//end class
-
