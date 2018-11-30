@@ -131,22 +131,56 @@ public class TrailSelect{
   @return the trail that the user will bike
   */
   public String ChooseTrail(String skill, String distance, String destination){
+    String bikeTrail = "";
+
     //long and picture1 -> Big Sur
+    if(distance.equals("longRide") && destination.equals("Big Sur")){
+      bikeTrail = "Big Sur";
+    }//end if
     //long and advanced -> Big Sur
+    if(distance.equals("longRide") && skill.equals("Advanced")){
+      bikeTrail = "Big Sur";
+    }//end if
     //advanced and picture1 -> Big Sur
+    if(skill.equals("Advanced") && destination.equals("Big Sur")){
+      bikeTrail = "Big Sur";
+    }//end if
 
     //short and picture2 -> Flume Trail
+    if(distance.equals("shortRide") && destination.equals("Flume Trail")){
+      bikeTrail = "Flume Trail";
+    }//end if
     //short and intermediate -> Flume Trail
+    if(distance.equals("shortRide") && skill.equals("Intermediate")){
+      bikeTrail = "Flume Trail";
+    }//end if
     //intermediate and picture2 -> Flume Trail
+    if(skill.equals("Intermediate") && destination.equals("Flume Trail")){
+      bikeTrail = "Flume Trail";
+    }//end if
 
     //short and picture3 -> Shark Valley Trail
+    if(distance.equals("shortRide") && destination.equals("Shark Valley Trail")){
+      bikeTrail = "Shark Valley Trail";
+    }//end if
     //short and beginner -> Shark Valley Trail
+    if(distance.equals("shortRide") && skill.equals("Beginner")){
+      bikeTrail = "Shark Valley";
+    }//end if
     //beginner and picture3 -> Shark Valley Trail
+    if(skill.equals("Beginner") && destination.equals("Shark Valley Trail")){
+      bikeTrail = "Shark Valley Trail";
+    }//end if
 
     //medium and picture4 -> Valmont Bike Park
-
     //else -> Valmont Bike Park
-    return "A";
+    if(distance.equals("mediumRide") && destination.equals("Valmont Bike Park")){
+      bikeTrail = "Valmont Bike Park";
+    }else{
+      bikeTrail = "Valmont Bike Park";
+    }//end if else
+
+    return bikeTrail;
   }//end ChooseTrail
 
 
@@ -167,4 +201,3 @@ public class TrailSelect{
  }//end ShowPicture
 
 }//end class
-
