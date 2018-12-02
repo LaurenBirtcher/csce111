@@ -11,6 +11,7 @@ public class BicycleRace {
 
   public static void main(String[] args) throws Exception {
 
+    /**
     TrailSelect myTrail = new TrailSelect();
 
     String string1 = "";
@@ -21,8 +22,9 @@ public class BicycleRace {
     String test3 = myTrail.Destination();
     String bikeTrail = myTrail.ChooseTrail(string1, string2, string3);
     System.out.println(myTrail.skillLevel);
-
+    */
     RidePrep myPrep = new RidePrep();
+    myPrep.getTrail();
     //myPrep.recommendPack();
     ArrayList<String> pack = myPrep.packPrep();
     //ArrayList<String> packinglist = new ArrayList<String>();
