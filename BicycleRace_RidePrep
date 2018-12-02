@@ -18,7 +18,21 @@ import java.net.URI;
 
 public class RidePrep {
 
-  TrailSelect myTrail = new TrailSelect();
+  //String getSkillLevel;
+  //String getDistance;
+  //String getDestination;
+  String getBikeTrail;
+
+  public static void getTrail() {
+      TrailSelect myTrail = new TrailSelect();
+      //String string1 = "";
+      //String string2 = "";
+      //String string3 = "";
+      String test1 = myTrail.SkillLevel();
+      String test2 = myTrail.Distance();
+      String test3 = myTrail.Destination();
+      getBikeTrail = myTrail.ChooseTrail(test1, test2, test3);
+  }
 
   /**
   This method recommendPack will ask the user to build a packing list. An option to
