@@ -18,6 +18,8 @@ import java.net.URI;
 
 public class RidePrep {
 
+  TrailSelect myTrail = new TrailSelect();
+
   /**
   This method recommendPack will ask the user to build a packing list. An option to
   open a website https://trektravel.com/frequently-asked-questions/packing-list/#printpackinglistThe
@@ -91,11 +93,11 @@ public class RidePrep {
   determine the terrain type based on the trail selected.
   */
   public static void determineTerrain(String trail) {
-    String string1 = "";
-    String string2 = "";
-    String string3 = "";
-    String terrainType = "";
     TrailSelect myTrail = new TrailSelect();
+    String string1 = myTrail.SkillLevel();
+    String string2 = myTrail.Distance();
+    String string3 = myTrail.Destination();
+    String terrainType = "";
     String bikeTrail = myTrail.ChooseTrail(string1, string2, string3);
     if(bikeTrail.equals("Big Sur")) {
       terrainType = "Road";
