@@ -20,7 +20,7 @@ public class BicycleRace {
     String test2 = myTrail.Distance();
     String test3 = myTrail.Destination();
     String bikeTrail = myTrail.ChooseTrail(string1, string2, string3);
-    
+    System.out.println(myTrail.skillLevel);
 
     RidePrep myPrep = new RidePrep();
     //myPrep.recommendPack();
