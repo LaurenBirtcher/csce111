@@ -11,29 +11,17 @@ public class BicycleRace {
 
   public static void main(String[] args) throws Exception {
 
-    /**
-    TrailSelect myTrail = new TrailSelect();
-
-    String string1 = "";
-    String string2 = "";
-    String string3 = "";
-    String test1 = myTrail.SkillLevel();
-    String test2 = myTrail.Distance();
-    String test3 = myTrail.Destination();
-    String bikeTrail = myTrail.ChooseTrail(string1, string2, string3);
-    System.out.println(myTrail.skillLevel);
-    */
     RidePrep myPrep = new RidePrep();
     myPrep.getTrail();
-    //myPrep.recommendPack();
+    myPrep.recommendPack();
     ArrayList<String> pack = myPrep.packPrep();
-    //ArrayList<String> packinglist = new ArrayList<String>();
-    //ArrayList<String> packList = myPrep.finishPacking(packinglist);
-    //myPrep.finalMap();
-    //myPrep.animateBike();
+    ArrayList<String> packinglist = new ArrayList<String>();
+    ArrayList<String> packList = myPrep.finishPacking(packinglist);
+    myPrep.finalMap();
+    myPrep.animateBike();
 
-    //VirtualTrip myTrip= new VirtualTrip();
-    //BikeSite mySite = new BikeSite();
+    VirtualTrip myTrip= new VirtualTrip();
+    BikeSite mySite = new BikeSite();
 
   }//end main
 
