@@ -31,10 +31,10 @@ public class RidePrep {
       String test2 = myTrail.Distance();
       String test3 = myTrail.Destination();
       getBikeTrail = myTrail.ChooseTrail(test1, test2, test3);
-      System.out.println(test1);//use to test code
-      System.out.println(test2);//use to test code
-      System.out.println(test3);//use to test code
-      System.out.println(getBikeTrail);//use to test code
+      //System.out.println(test1);//use to test code
+      //System.out.println(test2);//use to test code
+      //System.out.println(test3);//use to test code
+      //System.out.println(getBikeTrail);//use to test code
   }//end getTrail
 
   /**
@@ -124,7 +124,7 @@ public class RidePrep {
 
   /**
   This method finishPacking will ask the user to input more packing items if he/she wants to.
-  The items will be displayed by calling the displayPackingList method.
+  The final items will be displayed by calling the displayPackingList method.
   @param addItemsList initial empty arraylist of inputted items by user
   @return final arraylist of packing list items called finalList
   */
@@ -141,9 +141,17 @@ public class RidePrep {
       addItemsList.remove("stop");
     }//end if
     JOptionPane.showMessageDialog(null,"Here are the items you added to the list.","Recommended List",JOptionPane.INFORMATION_MESSAGE);
-      displayPackingList(addItemsList);
+    displayPackingList(addItemsList);
+    String recommendedItems [] = {"Cycling jerseys","Active socks","Cycling shoes",
+      "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle"};
+    ArrayList<String> recommendedList = new ArrayList<String>(Arrays.asList(recommendedItems));
+    ArrayList<String> finalList = new ArrayList<String>();
+    finalList.addAll(recommendedList);
+    finalList.addAll(addItemsList);
+    JOptionPane.showMessageDialog(null,"Here is the final packing list!","Final List",JOptionPane.INFORMATION_MESSAGE);
+    displayPackingList(finalList);
     JOptionPane.showMessageDialog(null,"Packing List Completed!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
-    return addItemsList;
+    return finalList;
   }//end finishPacking
 
   /**
@@ -157,7 +165,7 @@ public class RidePrep {
     if(answer == "Yes!") {
       JOptionPane.showMessageDialog(null,"Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     } else {
-      JOptionPane.showMessageDialog(null,"That's too bad...Let's go! Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);  
+      JOptionPane.showMessageDialog(null,"That's too bad...Let's go! Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     }//end if else
   }//end finalMap
 
@@ -165,7 +173,8 @@ public class RidePrep {
   This method animateBike prints a bike as ASCII art. It may be used as a smooth
   transition step throughout.
   */
-  public void animateBike() {
+  public void animateBike() throws Exception {
+    Thread.sleep(1500);
     String line1 = new String("          __o                                                                                                                  __o");
     String line2 = new String("      _`\\<,_                                                                                                             _`\\<,_");
     String line3 = new String("    ( * )/  ( * )                                                                                                       ( * )/  ( * )");
