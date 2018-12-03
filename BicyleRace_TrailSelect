@@ -94,8 +94,7 @@ public class TrailSelect{
 
     String pic4 = "colorado.jpg";
     ShowPicture(pic4);
-    JOptionPane.showMessageDialog(null, "Mountains are hard to beat! Please press 'ok' to see the next picture.");
-    JOptionPane.showMessageDialog(null, "Please get one last look and decide where you think looks like the best destination.");
+    JOptionPane.showMessageDialog(null, "Mountains are hard to beat! Please get one last look and decide where you think looks like the best destination.");
 
     Object[] destinationsOptions = {"Picture 1", "Picture 2", "Picture 3", "Picture 4"};
     Object destinationChoice = JOptionPane.showInputDialog(null,"Based on the pictures, which destination do you prefer for your bike ride?", "Destination", JOptionPane.INFORMATION_MESSAGE, null, destinationsOptions, destinationsOptions[0]);
@@ -131,54 +130,62 @@ public class TrailSelect{
   @return the trail that the user will bike
   */
   public String ChooseTrail(String skill, String distance, String destination){
-    String bikeTrail = "";
+    String bikeTrail = "Valmont Bike Park";
 
     //long and picture1 -> Big Sur
     if(distance.equals("longRide") && destination.equals("Big Sur")){
       bikeTrail = "Big Sur";
+      return bikeTrail;
     }//end if
     //long and advanced -> Big Sur
     if(distance.equals("longRide") && skill.equals("Advanced")){
       bikeTrail = "Big Sur";
+      return bikeTrail;
     }//end if
     //advanced and picture1 -> Big Sur
     if(skill.equals("Advanced") && destination.equals("Big Sur")){
       bikeTrail = "Big Sur";
+      return bikeTrail;
     }//end if
 
     //short and picture2 -> Flume Trail
     if(distance.equals("shortRide") && destination.equals("Flume Trail")){
       bikeTrail = "Flume Trail";
+      return bikeTrail;
     }//end if
     //short and intermediate -> Flume Trail
     if(distance.equals("shortRide") && skill.equals("Intermediate")){
       bikeTrail = "Flume Trail";
+      return bikeTrail;
     }//end if
     //intermediate and picture2 -> Flume Trail
     if(skill.equals("Intermediate") && destination.equals("Flume Trail")){
       bikeTrail = "Flume Trail";
+      return bikeTrail;
     }//end if
 
     //short and picture3 -> Shark Valley Trail
     if(distance.equals("shortRide") && destination.equals("Shark Valley Trail")){
       bikeTrail = "Shark Valley Trail";
+      return bikeTrail;
     }//end if
     //short and beginner -> Shark Valley Trail
     if(distance.equals("shortRide") && skill.equals("Beginner")){
       bikeTrail = "Shark Valley";
+      return bikeTrail;
     }//end if
     //beginner and picture3 -> Shark Valley Trail
     if(skill.equals("Beginner") && destination.equals("Shark Valley Trail")){
       bikeTrail = "Shark Valley Trail";
+      return bikeTrail;
     }//end if
 
     //medium and picture4 -> Valmont Bike Park
     //else -> Valmont Bike Park
     if(distance.equals("mediumRide") && destination.equals("Valmont Bike Park")){
       bikeTrail = "Valmont Bike Park";
-    }else{
-      bikeTrail = "Valmont Bike Park";
-    }//end if else
+      return bikeTrail;
+    }//end if
 
     return bikeTrail;
   }//end ChooseTrail
