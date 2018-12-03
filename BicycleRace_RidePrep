@@ -156,18 +156,48 @@ public class RidePrep {
 
   /**
   This method finalMap will ask the user to input if he/she is ready for the trip.
-  It will then call the class variable getBikeTrail to tell the user the destination.
+  It will then call the class variable getBikeTrail to show a picture and tell the user
+  the destination.
   */
   public void finalMap() {
     JOptionPane.showMessageDialog(null,"You are all packed! Let's review your destination","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     Object[] choices = {"Yes!", "No..."};
     Object answer = JOptionPane.showInputDialog(null,"Are you ready??","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE,null,choices,choices[0]);
+    if(getBikeTrail.equals("Big Sur")) {
+      String pic1 = "cal.jpg";
+      ShowPicture(pic1);
+    } else if(getBikeTrail.equals("Flume Trail")) {
+      String pic2 = "nevada.jpg";
+      ShowPicture(pic2);
+    } else if(getBikeTrail.equals("Shark Valley Trail")) {
+      String pic3 = "florida.jpg";
+      ShowPicture(pic3);
+    } else if(getBikeTrail.equals("Valmont Bike Park")) {
+      String pic4 = "colorado.jpg";
+      ShowPicture(pic4);
+    }//end if else
     if(answer == "Yes!") {
       JOptionPane.showMessageDialog(null,"Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     } else {
       JOptionPane.showMessageDialog(null,"That's too bad...Let's go! Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     }//end if else
   }//end finalMap
+
+  /**
+  This method displays pictures that are saved in the same directory as the program files
+  @param picName file path (.jpg) for picture
+  */
+  //https://www.dummies.com/programming/java/how-to-write-java-code-to-show-an-image-on-the-screen/
+  public static void ShowPicture(String picName) {
+   JFrame frame = new JFrame();
+   ImageIcon icon = new ImageIcon(picName);
+   JLabel label = new JLabel(icon);
+   frame.add(label);
+   frame.setDefaultCloseOperation
+          (JFrame.EXIT_ON_CLOSE);
+   frame.pack();
+   frame.setVisible(true);
+ }//end ShowPicture
 
   /**
   This method animateBike prints a bike as ASCII art. It may be used as a smooth
