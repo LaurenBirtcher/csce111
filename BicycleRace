@@ -4,28 +4,32 @@
 */
 
 import java.util.*;
+import javax.swing.JOptionPane;
+import java.awt.Desktop;
+import java.net.URI;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 
 public class BicycleRace {
 
   public static void main(String[] args) throws Exception {
 
+    //Group
+    JOptionPane.showMessageDialog(null, "Welcome to your virtual bike ride! First, we are going to play you a song to inspire your biking journey!");
+    Desktop web = Desktop.getDesktop();
+    web.browse(new URI("https://www.youtube.com/watch?v=Q07Zp7tQBRQ"));
+
+    //Lauren
     TrailSelect trail = new TrailSelect();
     String variableSkill, variableDistance, variableDestination, variableTrailChoice;
     variableSkill = trail.SkillLevel();
-    System.out.println(variableSkill);
-
     variableDistance = trail.Distance();
-    System.out.println(variableDistance);
-
     variableDestination = trail.Destination();
-    System.out.println(variableDestination);
-
     variableTrailChoice = trail.ChooseTrail(variableSkill, variableDistance, variableDestination);
-    System.out.println(variableTrailChoice);
 
-
+    //Janie
     RidePrep myPrep = new RidePrep();
-    //myPrep.getTrail();
     myPrep.recommendPack();
     ArrayList<String> pack = myPrep.packPrep(variableTrailChoice);
     ArrayList<String> packinglist = new ArrayList<String>();
@@ -33,8 +37,15 @@ public class BicycleRace {
     myPrep.finalMap(variableTrailChoice);
     myPrep.animateBike();
 
-    //VirtualTrip myTrip= new VirtualTrip();
+    //Haley
+    VirtualTrip myTrip= new VirtualTrip();
+    myTrip.Ride(variableTrailChoice, packList);
 
+    //Group
+    ImageIcon iconTheEnd= new ImageIcon("End.jpg"); //image from https://foreveradventuring.com/2015/09/09/lake-tahoe-flume-trail-marlette-lake-to-tunnel-creek/ by Emily Peltier
+    JOptionPane.showMessageDialog(null, "The bike ride is over!  You did a great job!  \nLet's take a look at a few more things we enjoy about bikes.", "You made it!", JOptionPane.PLAIN_MESSAGE, iconTheEnd);
+
+    //Taylor
     BikeSite mySite = new BikeSite();
     mySite.method1();
     mySite.method2();
