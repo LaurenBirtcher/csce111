@@ -10,7 +10,7 @@ public class BicycleRace {
   public static void main(String[] args) throws Exception {
 
     TrailSelect trail = new TrailSelect();
-    String variableSkill, variableDistance, variableDestination, VariableTrailChoice;
+    String variableSkill, variableDistance, variableDestination, variableTrailChoice;
     variableSkill = trail.SkillLevel();
     System.out.println(variableSkill);
 
@@ -20,8 +20,8 @@ public class BicycleRace {
     variableDestination = trail.Destination();
     System.out.println(variableDestination);
 
-    VariableTrailChoice = trail.ChooseTrail(variableSkill, variableDistance, variableDestination);
-    System.out.println(VariableTrailChoice);
+    variableTrailChoice = trail.ChooseTrail(variableSkill, variableDistance, variableDestination);
+    System.out.println(variableTrailChoice);
 
 
     RidePrep myPrep = new RidePrep();
