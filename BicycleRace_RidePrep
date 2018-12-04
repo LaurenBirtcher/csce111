@@ -1,6 +1,6 @@
 /**
 @author Janie Che
-@version 12/1/18
+@version 12/3/18
 */
 
 /**
@@ -17,25 +17,6 @@ import java.awt.Desktop;
 import java.net.URI;
 
 public class RidePrep {
-
-  String getBikeTrail;//initialize class variable to use in method determineTerrain
-
-  /**
-  This method getTrail will create the constructor for the TrailSelect class and
-  run the methods in TrailSelect. The variable getBikeTrail will be used to in the
-  method determineTerrain.
-  */
-  public void getTrail() {
-      TrailSelect myTrail = new TrailSelect();
-      String test1 = myTrail.SkillLevel();
-      String test2 = myTrail.Distance();
-      String test3 = myTrail.Destination();
-      getBikeTrail = myTrail.ChooseTrail(test1, test2, test3);
-      //System.out.println(test1);//use to test code
-      //System.out.println(test2);//use to test code
-      //System.out.println(test3);//use to test code
-      //System.out.println(getBikeTrail);//use to test code
-  }//end getTrail
 
   /**
   This method recommendPack will ask the user to build a packing list. An option to
@@ -76,15 +57,16 @@ public class RidePrep {
   of strings. A few items will be recommended based on basic items needed. The method
   will call the displayPackingList method to display the recommended items and will
   call the determineTerrain method to tell the user the type of terrain the trail is.
+  @param variableTrailChoice destination of the bike trip
   @return initial arraylist of items in packing list called recommendedList
   */
-  public ArrayList<String> packPrep() {
+  public ArrayList<String> packPrep(String variableTrailChoice) {
     String recommendedItems [] = {"Cycling jerseys","Active socks","Cycling shoes",
       "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle"};
     ArrayList<String> recommendedList = new ArrayList<String>(Arrays.asList(recommendedItems));
     JOptionPane.showMessageDialog(null,"Here is a basic packing list of recommended items.","Recommended List",JOptionPane.INFORMATION_MESSAGE);
     displayPackingList(recommendedList);
-    determineTerrain();
+    determineTerrain(variableTrailChoice);
     return recommendedList;
   }//end packPrep
 
@@ -107,16 +89,17 @@ public class RidePrep {
   /**
   This method determineTerrain will use the method ChooseTrail in TrailSelect. It will
   determine the terrain type based on the trail selected.
+  @param variableTrailChoice destination of the bike trip
   */
-  public void determineTerrain() {
+  public void determineTerrain(String variableTrailChoice) {
     String terrainType = "";
-    if(getBikeTrail.equals("Big Sur")) {
+    if(variableTrailChoice.equals("Big Sur")) {
       terrainType = "Road";
-    } else if(getBikeTrail.equals("Flume Trail")) {
+    } else if(variableTrailChoice.equals("Flume Trail")) {
       terrainType = "Mountain";
-    } else if(getBikeTrail.equals("Shark Valley Trail")) {
+    } else if(variableTrailChoice.equals("Shark Valley Trail")) {
       terrainType = "Road";
-    } else if(getBikeTrail.equals("Valmont Bike Park")) {
+    } else if(variableTrailChoice.equals("Valmont Bike Park")) {
       terrainType = "Mountain";
     }//end if else
     JOptionPane.showMessageDialog(null,"Based on the trial selected, the terrain is " + terrainType + ".","Add to Packing List",JOptionPane.INFORMATION_MESSAGE);
@@ -158,28 +141,29 @@ public class RidePrep {
   This method finalMap will ask the user to input if he/she is ready for the trip.
   It will then call the class variable getBikeTrail to show a picture and tell the user
   the destination.
+  @param variableTrailChoice destination of the bike trip
   */
-  public void finalMap() {
+  public void finalMap(String variableTrailChoice) {
     JOptionPane.showMessageDialog(null,"You are all packed! Let's review your destination","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     Object[] choices = {"Yes!", "No..."};
     Object answer = JOptionPane.showInputDialog(null,"Are you ready??","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE,null,choices,choices[0]);
-    if(getBikeTrail.equals("Big Sur")) {
+    if(variableTrailChoice.equals("Big Sur")) {
       String pic1 = "cal.jpg";
       ShowPicture(pic1);
-    } else if(getBikeTrail.equals("Flume Trail")) {
+    } else if(variableTrailChoice.equals("Flume Trail")) {
       String pic2 = "nevada.jpg";
       ShowPicture(pic2);
-    } else if(getBikeTrail.equals("Shark Valley Trail")) {
+    } else if(variableTrailChoice.equals("Shark Valley Trail")) {
       String pic3 = "florida.jpg";
       ShowPicture(pic3);
-    } else if(getBikeTrail.equals("Valmont Bike Park")) {
+    } else if(variableTrailChoice.equals("Valmont Bike Park")) {
       String pic4 = "colorado.jpg";
       ShowPicture(pic4);
     }//end if else
     if(answer == "Yes!") {
-      JOptionPane.showMessageDialog(null,"Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(null,"Your destination is " + variableTrailChoice + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     } else {
-      JOptionPane.showMessageDialog(null,"That's too bad...Let's go! Your destination is " + getBikeTrail + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(null,"That's too bad...Let's go! Your destination is " + variableTrailChoice + "!","Ready for the trip??",JOptionPane.INFORMATION_MESSAGE);
     }//end if else
   }//end finalMap
 
