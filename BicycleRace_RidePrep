@@ -62,7 +62,7 @@ public class RidePrep {
   */
   public ArrayList<String> packPrep(String variableTrailChoice) {
     String recommendedItems [] = {"Cycling jerseys","Active socks","Cycling shoes",
-      "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle"};
+      "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle", "Water", "Granola Bar", "Energy Bites"};
     ArrayList<String> recommendedList = new ArrayList<String>(Arrays.asList(recommendedItems));
     JOptionPane.showMessageDialog(null,"Here is a basic packing list of recommended items.","Recommended List",JOptionPane.INFORMATION_MESSAGE);
     displayPackingList(recommendedList);
@@ -126,7 +126,7 @@ public class RidePrep {
     JOptionPane.showMessageDialog(null,"Here are the items you added to the list.","Recommended List",JOptionPane.INFORMATION_MESSAGE);
     displayPackingList(addItemsList);
     String recommendedItems [] = {"Cycling jerseys","Active socks","Cycling shoes",
-      "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle"};
+      "Lightweight jacket(s)","Sunglasses","Wind/Rain jacket(s)","Helmet","Bike saddle", "Water", "Granola Bar", "Energy Bites"};
     ArrayList<String> recommendedList = new ArrayList<String>(Arrays.asList(recommendedItems));
     ArrayList<String> finalList = new ArrayList<String>();
     finalList.addAll(recommendedList);
@@ -211,4 +211,3 @@ public class RidePrep {
   }//end animateBike
 
 }//end class RidePrep
-
