@@ -4,6 +4,26 @@
 
 */
 
+//https://dailyburn.com/life/fitness/best-bike-trails-america/
+
+//TUTORIAL for printing
+//https://www.mkyong.com/java/how-to-read-an-image-from-file-or-url/
+
+//Resize images
+//http://resizeimage.net/
+
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
 /**
 The VirtualTrip class will take the user on a virtual bike experience
@@ -14,46 +34,104 @@ describe the trail and the randoms happenings that may occur on that trail.
 
 public class VirtualTrip {
 
+  public static void main(String[] args) {
+    // Options: "Big Sur" or "Flume Trail" or "Shark Valley Trail" or "Valmont Bike Park"
+    String trail = "Valmont Bike Park";
+    String[] pack = {"water", "food"};
+    ArrayList<String> packList = new ArrayList<String>(Arrays.asList(pack));
+    Ride(trail, packList);
+  }
+
   /**
   The Ride method takes the user on their journey through the chosen trail. The
   other methods will be called here.
   */
-  public static void Ride(String trail) {
-
-    //code here
-
+  public static void Ride(String trail, ArrayList<String> packList) {
+    Welcome(trail);
+    NiceView(trail, 1);
+    // araylist packList to array
+    String[] packList2 = packList.toArray(new String[packList.size()]);
+    Break(packList2);
+    Animal(trail, 1);
+    NiceView(trail, 2);
+    Animal(trail, 2);
   } //end Ride method
 
-  /**
-  The FlatTire method will take the user through the experience of getting a
-  flat tire. This will include images and access to our bag that was packed in
-  the RidePrep class.
-  */
-  public static void FlatTire(String[] packList){
 
-    //code here
+  /**  The Welcome method introduces the trail to the riders  */
+  public static void Welcome(String trail){
+    switch (trail) {
+      case "Big Sur":
+          ImageIcon iconBS = new ImageIcon("BigSurTrailhead.jpg"); //image from http://www.ventanawild.org/trails/ventana-wilderness-trails/big-sur-trail by Ventana Wilderness Alliance
+          JOptionPane.showMessageDialog(null, "Welcome to the " + trail + " trail!", "Welcome!", JOptionPane.PLAIN_MESSAGE, iconBS);
 
-  } //end FlatTire method
+          ImageIcon iconBS2 = new ImageIcon("BigSurTrailMap.png"); //image from https://www.centralcoastoutdoors.com/resources/tour-map.php
+          JOptionPane.showMessageDialog(null, "Here is the " + trail + " trail map.\n Lets get biking!", "Trail Map", JOptionPane.PLAIN_MESSAGE, iconBS2);
+          break;
+      case "Flume Trail":
+          ImageIcon iconFT = new ImageIcon("FlumeTrailHead.jpg"); //image from https://foreveradventuring.com/2015/09/09/lake-tahoe-flume-trail-marlette-lake-to-tunnel-creek/ by Emily Peltier
+          JOptionPane.showMessageDialog(null, "Welcome to the " + trail + "!", "Welcome!", JOptionPane.PLAIN_MESSAGE, iconFT);
 
-  /**
-  The Stuck method will take the user through the experience of getting
-  stuck in the mud. Oh no! This method will include images and access to our bag that was packed in
-  the RidePrep class.
-  */
-  public static void Stuck(String[] packList){
+          ImageIcon iconFT2 = new ImageIcon("tahoe-rim-trail.jpg"); //image from
+          JOptionPane.showMessageDialog(null, "Here is the " + trail + " map.\n Lets get biking!", "Trail Map", JOptionPane.PLAIN_MESSAGE, iconFT2);
+          break;
+      case "Shark Valley Trail":
+          ImageIcon iconSV = new ImageIcon("SharkValleyTrailheadSmaller.JPG"); //image from http://sharkvalleytrail.blogspot.com/2015/01/important-please-be-advised-that-this.html
+          JOptionPane.showMessageDialog(null, "Welcome to the " + trail + "!", "Welcome!", JOptionPane.PLAIN_MESSAGE, iconSV);
 
-    //code here
+          ImageIcon iconSV2 = new ImageIcon("SharkValleyTrailMap.png"); //image from https://www.sharkvalleytramtours.com/everglades-bicycle-tours/
+          JOptionPane.showMessageDialog(null, "Here is the " + trail + " map.\n Lets get biking!", "Trail Map", JOptionPane.PLAIN_MESSAGE, iconSV2);
+          break;
+      case "Valmont Bike Park":
+          ImageIcon iconVB = new ImageIcon("ValmontBikePark.jpg"); //image from https://www.singletracks.com/bike-trails/valmont-bike-park.html
+          JOptionPane.showMessageDialog(null, "Welcome to the " + trail + " trail!", "Welcome!", JOptionPane.PLAIN_MESSAGE, iconVB);
 
-  }// end Stuck method
+          ImageIcon iconVB2 = new ImageIcon("ValmontBikeParkTrailmapSmaller.jpg"); //image from http://picturethebrowns.blogspot.com/2012/06/valmont-bike-park.html
+          JOptionPane.showMessageDialog(null, "Here is the " + trail + " trail map.\n Lets get biking!", "Trail Map", JOptionPane.PLAIN_MESSAGE, iconVB2);
+          break;
+    } //end trail switch
+  } // end Welcome method
 
-  /**
-  The niceView method will show beautiful views and scenery from the users
-  chosen trip.
-  */
-  public static void NiceView(){
-
-    //code here
-
+  /**  The niceView method will show beautiful views and scenery from the users chosen trip.  */
+  public static void NiceView(String trail, int call){
+    switch (trail) {
+      case "Big Sur":
+          if (call == 1) {
+            ImageIcon iconBS1 = new ImageIcon("BS1.jpg"); //image from http://www.hikinginbigsur.com/hikes_mcwayfalls.html
+            JOptionPane.showMessageDialog(null, "What a nice stop!\nLets keep biking!", "Beautiful", JOptionPane.PLAIN_MESSAGE, iconBS1);
+          } else {
+            ImageIcon iconBS2 = new ImageIcon("BS2.jpg"); //image from https://www.outdoorproject.com/blog-news/best-big-sur-hiking-camping-beaches-and-waterfalls
+            JOptionPane.showMessageDialog(null, "Look at the bridge.\nAmazing!!\nLets keep biking!", "Gorgeous", JOptionPane.PLAIN_MESSAGE, iconBS2);
+          }
+          break;
+      case "Flume Trail":
+          if (call == 1) {
+            ImageIcon iconFT1 = new ImageIcon("FT1.jpg"); //image from http://tahoequarterly.com/summer-2017/local-author-pens-mountain-bike-guide/attachment/18-flume-trail
+            JOptionPane.showMessageDialog(null, "What a nice view!\nLets keep biking!", "Amazing", JOptionPane.PLAIN_MESSAGE, iconFT1);
+          } else {
+            ImageIcon iconFT2 = new ImageIcon("FT2.jpg"); //image from https://prescottwomanmagazine.com/tale-two-trails-watson-dam-flume-trail/
+            JOptionPane.showMessageDialog(null, "What a nice bridge!\nLets keep biking!", "Wow", JOptionPane.PLAIN_MESSAGE, iconFT2);
+          }
+          break;
+      case "Shark Valley Trail":
+          if (call == 1) {
+            ImageIcon iconSV1 = new ImageIcon("SV1.jpg"); //image from http://miami.happeningmag.com/shark-valley-full-moon-bike-ride/
+            JOptionPane.showMessageDialog(null, "What a nice stop!\nLets keep biking!", "Beautiful", JOptionPane.PLAIN_MESSAGE, iconSV1);
+          } else {
+            ImageIcon iconSV2 = new ImageIcon("SV2.jpg"); //image from http://sharkvalleytrail.blogspot.com/2015/01/important-please-be-advised-that-this.html
+            JOptionPane.showMessageDialog(null, "What a nice stop!\nLets keep biking!", "Gorgeous", JOptionPane.PLAIN_MESSAGE, iconSV2);
+          }
+          break;
+      case "Valmont Bike Park":
+          if (call == 1) {
+            ImageIcon iconVB1 = new ImageIcon("VB1.jpg"); //image from https://www.youtube.com/watch?v=HKtIdfzte1M
+            JOptionPane.showMessageDialog(null, "Cool path!\nLets keep biking!", "Amazing", JOptionPane.PLAIN_MESSAGE, iconVB1);
+          } else {
+            ImageIcon iconVB2 = new ImageIcon("VB2.jpg"); //image from https://www.flickr.com/photos/bouldercolorado/29913079514/
+            JOptionPane.showMessageDialog(null, "A rainbow!\nSo lucky.\nLets keep biking!", "Wow", JOptionPane.PLAIN_MESSAGE, iconVB2);
+          }
+          break;
+    } //end trail switch
   } // end NiceView method
 
   /**
@@ -61,19 +139,103 @@ public class VirtualTrip {
   or snack break. They will be able to access their pack and choose a snack!
   */
   public static void Break(String[] packList){
-
-    //code here
-
+    String choice = (String) JOptionPane.showInputDialog(null, "Time for a break!!\n\nWhat would you like to do?", "Break", JOptionPane.PLAIN_MESSAGE,null, packList, packList[0]);
+    JOptionPane.showMessageDialog(null, "Thank goodness!\nThe body is strong now so we can keep biking!", "Replenished", JOptionPane.PLAIN_MESSAGE);
   } //end Break method
 
   /**
   The Animal method will choose a random animal to enounter based on the
-  geography of the area chosen in the TrailSelect class. 
+  geography of the area chosen in the TrailSelect class.
   */
-  public static void Animal(){
-
-    //code here
-
+  public static void Animal(String trail, int call){
+    if (call == 1) {
+      switch (trail) {
+        case "Big Sur":
+            ImageIcon iconBS = new ImageIcon("BS_squirrel2Smaller.jpg"); //image from https://www.flickr.com/photos/29159666@N05/8013063877/
+            String[] options = {"Keep Biking","Feed Squirrel","Take Picture"};
+            String choice = (String) JOptionPane.showInputDialog(null, "Ohh look!!\nYou have come across a grey squirrel.\nWhat would you like to do?", "Grey Squirrel", JOptionPane.PLAIN_MESSAGE, iconBS, options, options[0]);
+            ImageIcon iconSquirrel = new ImageIcon("BS_feedSquirrelSmaller.jpg"); // image from https://vidodoo.com/watch.php?vid=027660fb1
+            ImageIcon iconPic = new ImageIcon("BS_GreySquirrelSmaller.jpg");
+            if (choice == "Keep Biking") {
+              JOptionPane.showMessageDialog(null, "Just a common squirrel...\nLet's keep going!", "Keep Biking", JOptionPane.PLAIN_MESSAGE);
+            } else if (choice == "Feed Squirrel") {
+              JOptionPane.showMessageDialog(null, "Ohh boy", "Feed Squirrel", JOptionPane.PLAIN_MESSAGE, iconSquirrel);
+            } else {
+              JOptionPane.showMessageDialog(null, "Great pic!", "Take Picture", JOptionPane.PLAIN_MESSAGE, iconPic);
+            }
+            break;
+        case "Flume Trail":
+            ImageIcon iconSage = new ImageIcon("FT_sage.jpg"); //image from https://www.opb.org/news/article/public-lands-grazing-sage-grouse-study/
+            JOptionPane.showMessageDialog(null, "Ohh look!!\nYou have come across a sage grouse!\nWhat an interesting creature.\nLets keep biking.", "Sage Grouse", JOptionPane.PLAIN_MESSAGE, iconSage);
+            break;
+        case "Shark Valley Trail":
+            ImageIcon iconRuff = new ImageIcon("SV_heronRuff.jpg"); //image from https://www.flickr.com/photos/lastingimages/26247424088
+            String[] options3 = {"Brush Feathers","Watch"};
+            String choice3 = (String) JOptionPane.showInputDialog(null, "Ohh look!!\nYou have come across a blue heron.\nWhat would you like to do?", "Blue Heron", JOptionPane.PLAIN_MESSAGE, iconRuff, options3, options3[0]);
+            ImageIcon iconSunbathing = new ImageIcon("SV_sunbathing.jpg"); //image from https://www.flickr.com/photos/dunstanfdo/8171600051
+            ImageIcon iconBrush = new ImageIcon("SV_Brushed.jpg"); // image from https://commons.wikimedia.org/wiki/File:Everglades_-_Shark_Valley_-_Great_Blue_Heron_(Ardea_herodias)_(12259645425).jpg
+            if (choice3 == "Brush Feathers") {
+              JOptionPane.showMessageDialog(null, "Thank goodness you had  brush on you!\nThe feathers look much better.", "Lookin' good", JOptionPane.PLAIN_MESSAGE, iconBrush);
+            } else {
+              JOptionPane.showMessageDialog(null, "Nice day for a day in the sun!\nLets keep biking!", "Sunbathing", JOptionPane.PLAIN_MESSAGE, iconSunbathing);
+            }
+            break;
+        case "Valmont Bike Park":
+            ImageIcon iconCrazy = new ImageIcon("VP_crazy.jpg"); // image from https://www.tripadvisor.com/LocationPhotoDirectLink-g33324-d3213041-i67478034-Valmont_Bike_Park-Boulder_Colorado.html
+            String[] options4 = {"Take Pic", "Try it Yourself"};
+            String choice4 = (String) JOptionPane.showInputDialog(null, "Ohh WOW!\nYou have come across some BMXers!\nWhat would you like to do?", "Crazy Bikers", JOptionPane.PLAIN_MESSAGE, iconCrazy, options4, options4[0]);
+            ImageIcon iconPic2 = new ImageIcon("VP_pic.jpg"); //imge from https://m.vitalmtb.com/photos/member/Friday-Session-9-14-12,4317/Valmont-Bike-Park,42569/rhiannon,10203?mobile=true
+            ImageIcon iconTry = new ImageIcon("VP_try.jpg"); //image from https://www.pinterest.com/pin/411938697143013047/?lp=true
+            if (choice4 == "Take Pic") {
+              JOptionPane.showMessageDialog(null, "That was cool!\nLets keep biking!", "Picture", JOptionPane.PLAIN_MESSAGE, iconPic2);
+            } else {
+              JOptionPane.showMessageDialog(null, "Good effort!\nLets keep biking!", "Nice Try", JOptionPane.PLAIN_MESSAGE, iconTry);
+            }
+            break;
+      } //end trail switch
+    } else {
+      switch (trail) {
+        case "Big Sur":
+            ImageIcon iconBS = new ImageIcon("BS_bobcatSmaller.jpg"); // image from https://www.nature.org/en-us/about-us/where-we-work/united-states/new-jersey/stories-in-new-jersey/building-bobcat-alley/
+            String[] options = {"Back away slowly", "Give water", "Make loud noises"};
+            String choice = (String) JOptionPane.showInputDialog(null, "Ohh no...\nYou have come across a bobcat.\nWhat would you like to do?", "Bobcat", JOptionPane.PLAIN_MESSAGE, iconBS, options, options[0]);
+            ImageIcon iconWater = new ImageIcon("BS_bobcatsDrinkingSmaller.jpg"); //image from https://www.nationalgeographic.com/photography/proof/2018/05/wildcats-bobcats-animals-photography/
+            if (choice == "Back away slowly") {
+              JOptionPane.showMessageDialog(null, "Good choice. The bobcat was far enough away.\nLet's keep biking!", "Back away slowly", JOptionPane.PLAIN_MESSAGE);
+            } else if (choice == "Give water") {
+              JOptionPane.showMessageDialog(null, "That was risky...\nGood thing is was a friendly bobcat family!", "Water the bobcats", JOptionPane.PLAIN_MESSAGE, iconWater);
+            } else {
+              JOptionPane.showMessageDialog(null, "You scared him away!\nThe path is now safe.\nYou may continue.", "Make some noise!", JOptionPane.PLAIN_MESSAGE);
+            }
+            break;
+        case "Flume Trail":
+            ImageIcon iconBear = new ImageIcon("FT_Bear.jpg");
+            String[] options2 = {"Take Picture","Make Noise!"};
+            String choice2 = (String) JOptionPane.showInputDialog(null, "Ohh my...\nYou have come across a bear!\nWhat would you ike to do?", "Bear", JOptionPane.PLAIN_MESSAGE, iconBear, options2, options2[0]);
+            ImageIcon iconBearPic = new ImageIcon("FT_BearPic.jpg"); //image from https://www.biologicaldiversity.org/species/mammals/grizzly_bear/natural_history.html
+            if (choice2 == "Take Picture") {
+              JOptionPane.showMessageDialog(null, "Nice picture!!\nLets keep biking.", "Take Pic", JOptionPane.PLAIN_MESSAGE, iconBearPic);
+            } else {
+              JOptionPane.showMessageDialog(null, "Good choice. You scared the bear away.\nLet's keep biking!", "Make Noise!", JOptionPane.PLAIN_MESSAGE);
+            }
+            break;
+        case "Shark Valley Trail":
+            ImageIcon iconSV = new ImageIcon("SV_alligators.jpg");// image from http://www.lovethesepics.com/2014/06/wild-beauty-of-americas-everglades-subtropical-wilderness-stuffed-with-wildlife/
+            String[] options3 = {"RUN",  "Take Picture"};
+            String choice3 = (String) JOptionPane.showInputDialog(null, "WOA\nYou have come across many alligators.\nWhat would you like to do?", "Alligator", JOptionPane.PLAIN_MESSAGE, iconSV, options3, options3[0]);
+            ImageIcon iconSmile = new ImageIcon("SV_alligatorSmile.jpg"); // image from https://cudamanadventures.com/2013/12/23/shark-valley-bicycling-adventure/
+            if (choice3 == "RUN") {
+              JOptionPane.showMessageDialog(null, "Good choice. An alligator won't chase you down the street.\nLet's keep biking!", "RUN!", JOptionPane.PLAIN_MESSAGE);
+            } else {
+              JOptionPane.showMessageDialog(null, "That was risky...\nGood thing the gator was full!", "Smile", JOptionPane.PLAIN_MESSAGE, iconSmile);
+            }
+            break;
+        case "Valmont Bike Park":
+            ImageIcon iconVP = new ImageIcon("VP_dogs.jpg"); //image from https://bouldercolorado.gov/parks-rec/dog-parks
+            JOptionPane.showMessageDialog(null, "WOA\nYou have come across some cute dogs.\nLets keep biking!", "pups", JOptionPane.PLAIN_MESSAGE, iconVP);
+            break;
+      } //end trail switch
+    }
   } //end Animal method
 
 } //end VirtualTrip class
