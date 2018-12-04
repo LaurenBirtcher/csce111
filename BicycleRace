@@ -25,16 +25,16 @@ public class BicycleRace {
 
 
     RidePrep myPrep = new RidePrep();
-    myPrep.getTrail();
+    //myPrep.getTrail();
     myPrep.recommendPack();
-    ArrayList<String> pack = myPrep.packPrep();
+    ArrayList<String> pack = myPrep.packPrep(variableTrailChoice);
     ArrayList<String> packinglist = new ArrayList<String>();
     ArrayList<String> packList = myPrep.finishPacking(packinglist);
-    myPrep.finalMap();
+    myPrep.finalMap(variableTrailChoice);
     myPrep.animateBike();
 
     //VirtualTrip myTrip= new VirtualTrip();
-    
+
     BikeSite mySite = new BikeSite();
     mySite.method1();
     mySite.method2();
