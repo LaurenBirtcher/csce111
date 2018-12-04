@@ -10,6 +10,10 @@ This class will take the user to a website with multiple pages with biking pictu
 */
 
 import java.util.*;
+import java.io.*;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class BikeSite{
 
@@ -19,7 +23,13 @@ It will have links to the other pages.
 */
 public static void method1()
 {
-  // code here
+  Desktop d = Desktop.getDesktop();
+  try
+  {
+    d.browse(new URI("http://people.tamu.edu/~taylormhoagland/bikeRace.html"));
+  }catch(IOException | URISyntaxException e2){
+    e2.printStackTrace();
+  }
 }//end method 1
 
 /**
@@ -28,7 +38,13 @@ It will have pictures of water bottles, helmets, and bike shoes.
 */
 public static void method2()
 {
-  // code here
+  Desktop d = Desktop.getDesktop();
+  try
+  {
+    d.browse(new URI("http://people.tamu.edu/~taylormhoagland/bikeEquipment.html"));
+  }catch(IOException | URISyntaxException e2){
+    e2.printStackTrace();
+  }
 }//end method 2
 
 /**
@@ -37,7 +53,13 @@ There will be videos of biking on various trails as well as videos of biking "fa
 */
 public static void method3()
 {
-  // code here
+    Desktop d = Desktop.getDesktop();
+    try
+    {
+      d.browse(new URI("http://people.tamu.edu/~taylormhoagland/bikeFails.html"));
+    }catch(IOException | URISyntaxException e2){
+      e2.printStackTrace();
+    }
 } // end method3
 
 /**
@@ -45,7 +67,13 @@ This method will create a new page (linked on first), with a title and various b
 */
 public static void method4()
 {
-  // code here
+  Desktop d = Desktop.getDesktop();
+  try
+  {
+    d.browse(new URI("http://people.tamu.edu/~taylormhoagland/bikeJokes.html"));
+  }catch(IOException | URISyntaxException e2){
+    e2.printStackTrace();
+  }
 } // end method4
 
 } // end class bicycleSite
