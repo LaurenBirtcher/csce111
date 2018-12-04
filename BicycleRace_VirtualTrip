@@ -34,14 +34,6 @@ describe the trail and the randoms happenings that may occur on that trail.
 
 public class VirtualTrip {
 
-  public static void main(String[] args) {
-    // Options: "Big Sur" or "Flume Trail" or "Shark Valley Trail" or "Valmont Bike Park"
-    String trail = "Valmont Bike Park";
-    String[] pack = {"water", "food"};
-    ArrayList<String> packList = new ArrayList<String>(Arrays.asList(pack));
-    Ride(trail, packList);
-  }
-
   /**
   The Ride method takes the user on their journey through the chosen trail. The
   other methods will be called here.
@@ -49,10 +41,9 @@ public class VirtualTrip {
   public static void Ride(String trail, ArrayList<String> packList) {
     Welcome(trail);
     NiceView(trail, 1);
-    // araylist packList to array
+    Animal(trail, 1);
     String[] packList2 = packList.toArray(new String[packList.size()]);
     Break(packList2);
-    Animal(trail, 1);
     NiceView(trail, 2);
     Animal(trail, 2);
   } //end Ride method
@@ -139,7 +130,7 @@ public class VirtualTrip {
   or snack break. They will be able to access their pack and choose a snack!
   */
   public static void Break(String[] packList){
-    String choice = (String) JOptionPane.showInputDialog(null, "Time for a break!!\n\nWhat would you like to do?", "Break", JOptionPane.PLAIN_MESSAGE,null, packList, packList[0]);
+    String choice = (String) JOptionPane.showInputDialog(null, "Time for a break!!\nLet's look in your backpack and find something to eat or drink.", "Break", JOptionPane.PLAIN_MESSAGE,null, packList, packList[0]);
     JOptionPane.showMessageDialog(null, "Thank goodness!\nThe body is strong now so we can keep biking!", "Replenished", JOptionPane.PLAIN_MESSAGE);
   } //end Break method
 
