@@ -1,8 +1,6 @@
 /**
-
 @author Lauren Birtcher, Janie Che, Taylor Hoagland, Haley McCannon
-@version 11/27/18
-
+@version 12/3/18
 */
 
 import java.util.*;
@@ -10,6 +8,21 @@ import java.util.*;
 public class BicycleRace {
 
   public static void main(String[] args) throws Exception {
+
+    TrailSelect trail = new TrailSelect();
+    String variableSkill, variableDistance, variableDestination, VaribaleTrailChoice;
+    variableSkill = trail.SkillLevel();
+    System.out.println(variableSkill);
+
+    variableDistance = trail.Distance();
+    System.out.println(variableDistance);
+
+    variableDestination = trail.Destination();
+    System.out.println(variableDestination);
+
+    VariableTrailChoice = trail.ChooseTrail(variableSkill, variableDistance, variableDestination);
+    System.out.println(VariableTrailChoice);
+
 
     RidePrep myPrep = new RidePrep();
     myPrep.getTrail();
@@ -20,8 +33,13 @@ public class BicycleRace {
     myPrep.finalMap();
     myPrep.animateBike();
 
-    VirtualTrip myTrip= new VirtualTrip();
+    //VirtualTrip myTrip= new VirtualTrip();
+    
     BikeSite mySite = new BikeSite();
+    mySite.method1();
+    mySite.method2();
+    mySite.method3();
+    mySite.method4();
 
   }//end main
 
