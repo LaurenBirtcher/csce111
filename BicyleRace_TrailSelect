@@ -96,6 +96,9 @@ public class TrailSelect{
     ShowPicture(pic4);
     JOptionPane.showMessageDialog(null, "Mountains are hard to beat! Please get one last look and decide where you think looks like the best destination.");
 
+    String pic5 = "letsride.jpg";
+    ShowPicture(pic5);
+
     Object[] destinationsOptions = {"Picture 1", "Picture 2", "Picture 3", "Picture 4"};
     Object destinationChoice = JOptionPane.showInputDialog(null,"Based on the pictures, which destination do you prefer for your bike ride?", "Destination", JOptionPane.INFORMATION_MESSAGE, null, destinationsOptions, destinationsOptions[0]);
 
